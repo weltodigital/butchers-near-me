@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# High-priority pages
+Allow: /locations/
+Allow: /butchers/
+Allow: /dashboard
+
+# Sitemaps
+Sitemap: https://meatmap.co.uk/sitemap.xml
+
+# Crawl-delay for respect
+Crawl-delay: 1
+
+# Block admin and private pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /test/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Allow specific API endpoints that are public
+Allow: /api/butchers
+Allow: /api/locations

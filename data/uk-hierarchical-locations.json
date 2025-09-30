@@ -1,0 +1,322 @@
+{
+  "counties": [
+    {
+      "name": "Hampshire",
+      "slug": "hampshire",
+      "population": 1844245,
+      "seo_keywords": ["hampshire butchers", "hampshire meat suppliers", "new forest butchers", "hampshire quality meat"],
+      "cities_and_towns": [
+        {
+          "name": "Portsmouth",
+          "slug": "portsmouth",
+          "type": "city",
+          "population": 205400,
+          "seo_keywords": ["portsmouth butchers", "portsmouth meat", "naval city butchers"]
+        },
+        {
+          "name": "Southampton",
+          "slug": "southampton",
+          "type": "city",
+          "population": 253651,
+          "seo_keywords": ["southampton butchers", "southampton meat suppliers", "solent butchers"]
+        },
+        {
+          "name": "Winchester",
+          "slug": "winchester",
+          "type": "city",
+          "population": 45184,
+          "seo_keywords": ["winchester butchers", "historic city butchers", "cathedral city meat"]
+        },
+        {
+          "name": "Basingstoke",
+          "slug": "basingstoke",
+          "type": "town",
+          "population": 107355,
+          "seo_keywords": ["basingstoke butchers", "north hampshire butchers", "basingstoke meat"]
+        }
+      ]
+    },
+    {
+      "name": "Kent",
+      "slug": "kent",
+      "population": 1846478,
+      "seo_keywords": ["kent butchers", "garden of england meat", "kentish butchers", "hop county meat"],
+      "cities_and_towns": [
+        {
+          "name": "Canterbury",
+          "slug": "canterbury",
+          "type": "city",
+          "population": 55240,
+          "seo_keywords": ["canterbury butchers", "cathedral city butchers", "kent traditional meat"]
+        },
+        {
+          "name": "Maidstone",
+          "slug": "maidstone",
+          "type": "town",
+          "population": 113137,
+          "seo_keywords": ["maidstone butchers", "kent county town butchers", "medway valley meat"]
+        },
+        {
+          "name": "Dover",
+          "slug": "dover",
+          "type": "town",
+          "population": 31022,
+          "seo_keywords": ["dover butchers", "white cliffs butchers", "channel port meat"]
+        },
+        {
+          "name": "Folkestone",
+          "slug": "folkestone",
+          "type": "town",
+          "population": 51337,
+          "seo_keywords": ["folkestone butchers", "channel tunnel butchers", "coastal kent meat"]
+        }
+      ]
+    },
+    {
+      "name": "Surrey",
+      "slug": "surrey",
+      "population": 1196236,
+      "seo_keywords": ["surrey butchers", "home counties meat", "commuter belt butchers", "premium surrey meat"],
+      "cities_and_towns": [
+        {
+          "name": "Guildford",
+          "slug": "guildford",
+          "type": "town",
+          "population": 77057,
+          "seo_keywords": ["guildford butchers", "surrey hills butchers", "cathedral town meat"]
+        },
+        {
+          "name": "Woking",
+          "slug": "woking",
+          "type": "town",
+          "population": 103900,
+          "seo_keywords": ["woking butchers", "commuter town butchers", "surrey quality meat"]
+        },
+        {
+          "name": "Epsom",
+          "slug": "epsom",
+          "type": "town",
+          "population": 31489,
+          "seo_keywords": ["epsom butchers", "derby town butchers", "racecourse butchers"]
+        }
+      ]
+    },
+    {
+      "name": "Essex",
+      "slug": "essex",
+      "population": 1832751,
+      "seo_keywords": ["essex butchers", "east anglian meat", "essex quality butchers", "coastal county meat"],
+      "cities_and_towns": [
+        {
+          "name": "Chelmsford",
+          "slug": "chelmsford",
+          "type": "city",
+          "population": 180739,
+          "seo_keywords": ["chelmsford butchers", "essex county town butchers", "cathedral city meat"]
+        },
+        {
+          "name": "Colchester",
+          "slug": "colchester",
+          "type": "town",
+          "population": 122000,
+          "seo_keywords": ["colchester butchers", "britain oldest town butchers", "roman city meat"]
+        },
+        {
+          "name": "Southend-on-Sea",
+          "slug": "southend-on-sea",
+          "type": "city",
+          "population": 295310,
+          "seo_keywords": ["southend butchers", "seaside city butchers", "thames estuary meat"]
+        }
+      ]
+    },
+    {
+      "name": "Lancashire",
+      "slug": "lancashire",
+      "population": 1498300,
+      "seo_keywords": ["lancashire butchers", "red rose county meat", "pennine butchers", "lancashire black pudding"],
+      "cities_and_towns": [
+        {
+          "name": "Preston",
+          "slug": "preston",
+          "type": "city",
+          "population": 114300,
+          "seo_keywords": ["preston butchers", "lancashire county town butchers", "guild city meat"]
+        },
+        {
+          "name": "Blackburn",
+          "slug": "blackburn",
+          "type": "town",
+          "population": 117963,
+          "seo_keywords": ["blackburn butchers", "east lancashire butchers", "pennine town meat"]
+        },
+        {
+          "name": "Lancaster",
+          "slug": "lancaster",
+          "type": "city",
+          "population": 52234,
+          "seo_keywords": ["lancaster butchers", "historic city butchers", "lune valley meat"]
+        },
+        {
+          "name": "Blackpool",
+          "slug": "blackpool",
+          "type": "town",
+          "population": 139305,
+          "seo_keywords": ["blackpool butchers", "seaside resort butchers", "tower town meat"]
+        }
+      ]
+    },
+    {
+      "name": "West Yorkshire",
+      "slug": "west-yorkshire",
+      "population": 2320214,
+      "seo_keywords": ["west yorkshire butchers", "white rose meat", "pennine butchers", "yorkshire pudding meat"],
+      "cities_and_towns": [
+        {
+          "name": "Leeds",
+          "slug": "leeds",
+          "type": "city",
+          "population": 812000,
+          "seo_keywords": ["leeds butchers", "yorkshire meat", "local butchers leeds", "premium cuts leeds"]
+        },
+        {
+          "name": "Bradford",
+          "slug": "bradford",
+          "type": "city",
+          "population": 349561,
+          "seo_keywords": ["bradford butchers", "halal meat bradford", "yorkshire dales meat", "bradford quality butchers"]
+        },
+        {
+          "name": "Wakefield",
+          "slug": "wakefield",
+          "type": "city",
+          "population": 99251,
+          "seo_keywords": ["wakefield butchers", "cathedral city butchers", "yorkshire traditional meat"]
+        },
+        {
+          "name": "Huddersfield",
+          "slug": "huddersfield",
+          "type": "town",
+          "population": 162949,
+          "seo_keywords": ["huddersfield butchers", "pennine meat", "yorkshire town butchers", "textile town meat"]
+        }
+      ]
+    },
+    {
+      "name": "Greater Manchester",
+      "slug": "greater-manchester",
+      "population": 2720000,
+      "seo_keywords": ["greater manchester butchers", "manchester region meat", "industrial heritage butchers"],
+      "cities_and_towns": [
+        {
+          "name": "Manchester",
+          "slug": "manchester",
+          "type": "city",
+          "population": 547000,
+          "seo_keywords": ["manchester butchers", "artisan meat manchester", "traditional butchers manchester", "sustainable meat manchester"]
+        },
+        {
+          "name": "Bolton",
+          "slug": "bolton",
+          "type": "town",
+          "population": 194189,
+          "seo_keywords": ["bolton butchers", "greater manchester meat", "pennine town butchers"]
+        },
+        {
+          "name": "Stockport",
+          "slug": "stockport",
+          "type": "town",
+          "population": 295243,
+          "seo_keywords": ["stockport butchers", "cheshire borders butchers", "market town meat"]
+        }
+      ]
+    },
+    {
+      "name": "West Midlands",
+      "slug": "west-midlands",
+      "population": 2916458,
+      "seo_keywords": ["west midlands butchers", "birmingham region meat", "black country butchers"],
+      "cities_and_towns": [
+        {
+          "name": "Birmingham",
+          "slug": "birmingham",
+          "type": "city",
+          "population": 1149000,
+          "seo_keywords": ["birmingham butchers", "quality meat birmingham", "local butchers birmingham", "fresh meat birmingham"]
+        },
+        {
+          "name": "Coventry",
+          "slug": "coventry",
+          "type": "city",
+          "population": 345385,
+          "seo_keywords": ["coventry butchers", "west midlands meat", "traditional coventry butchers", "local meat coventry"]
+        },
+        {
+          "name": "Wolverhampton",
+          "slug": "wolverhampton",
+          "type": "city",
+          "population": 263700,
+          "seo_keywords": ["wolverhampton butchers", "black country meat", "traditional wolverhampton butchers"]
+        }
+      ]
+    },
+    {
+      "name": "Devon",
+      "slug": "devon",
+      "population": 1194166,
+      "seo_keywords": ["devon butchers", "westcountry meat", "dartmoor butchers", "devon cream meat"],
+      "cities_and_towns": [
+        {
+          "name": "Plymouth",
+          "slug": "plymouth",
+          "type": "city",
+          "population": 263070,
+          "seo_keywords": ["plymouth butchers", "naval city butchers", "devon port meat"]
+        },
+        {
+          "name": "Exeter",
+          "slug": "exeter",
+          "type": "city",
+          "population": 131405,
+          "seo_keywords": ["exeter butchers", "cathedral city butchers", "devon county town meat"]
+        },
+        {
+          "name": "Torquay",
+          "slug": "torquay",
+          "type": "town",
+          "population": 65245,
+          "seo_keywords": ["torquay butchers", "english riviera butchers", "coastal devon meat"]
+        }
+      ]
+    },
+    {
+      "name": "Norfolk",
+      "slug": "norfolk",
+      "population": 907760,
+      "seo_keywords": ["norfolk butchers", "east anglian meat", "broads butchers", "norfolk turkey"],
+      "cities_and_towns": [
+        {
+          "name": "Norwich",
+          "slug": "norwich",
+          "type": "city",
+          "population": 213166,
+          "seo_keywords": ["norwich butchers", "norfolk county town butchers", "cathedral city meat"]
+        },
+        {
+          "name": "Great Yarmouth",
+          "slug": "great-yarmouth",
+          "type": "town",
+          "population": 38693,
+          "seo_keywords": ["great yarmouth butchers", "coastal norfolk butchers", "seaside town meat"]
+        },
+        {
+          "name": "King's Lynn",
+          "slug": "kings-lynn",
+          "type": "town",
+          "population": 42800,
+          "seo_keywords": ["kings lynn butchers", "fenland butchers", "norfolk port town meat"]
+        }
+      ]
+    }
+  ]
+}

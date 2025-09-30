@@ -1,0 +1,402 @@
+{
+  "major_cities": [
+    {
+      "name": "London",
+      "county": "Greater London",
+      "region": "London",
+      "population": 9648110,
+      "postcode_areas": ["E", "EC", "N", "NW", "SE", "SW", "W", "WC"],
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "seo_keywords": ["london butchers", "premium meat london", "artisan butchers london", "organic meat london"]
+    },
+    {
+      "name": "Birmingham",
+      "county": "West Midlands",
+      "region": "West Midlands",
+      "population": 1149000,
+      "postcode_areas": ["B"],
+      "lat": 52.4862,
+      "lng": -1.8904,
+      "seo_keywords": ["birmingham butchers", "quality meat birmingham", "local butchers birmingham", "fresh meat birmingham"]
+    },
+    {
+      "name": "Manchester",
+      "county": "Greater Manchester",
+      "region": "North West",
+      "population": 547000,
+      "postcode_areas": ["M"],
+      "lat": 53.4808,
+      "lng": -2.2426,
+      "seo_keywords": ["manchester butchers", "artisan meat manchester", "traditional butchers manchester", "sustainable meat manchester"]
+    },
+    {
+      "name": "Leeds",
+      "county": "West Yorkshire",
+      "region": "Yorkshire and the Humber",
+      "population": 812000,
+      "postcode_areas": ["LS"],
+      "lat": 53.8008,
+      "lng": -1.5491,
+      "seo_keywords": ["leeds butchers", "yorkshire meat", "local butchers leeds", "premium cuts leeds"]
+    },
+    {
+      "name": "Glasgow",
+      "county": "Scotland",
+      "region": "Scotland",
+      "population": 635130,
+      "postcode_areas": ["G"],
+      "lat": 55.8642,
+      "lng": -4.2518,
+      "seo_keywords": ["glasgow butchers", "scottish meat", "haggis glasgow", "traditional scottish butchers"]
+    },
+    {
+      "name": "Liverpool",
+      "county": "Merseyside",
+      "region": "North West",
+      "population": 498042,
+      "postcode_areas": ["L"],
+      "lat": 53.4084,
+      "lng": -2.9916,
+      "seo_keywords": ["liverpool butchers", "merseyside meat", "quality butchers liverpool", "fresh meat liverpool"]
+    },
+    {
+      "name": "Edinburgh",
+      "county": "Scotland",
+      "region": "Scotland",
+      "population": 540000,
+      "postcode_areas": ["EH"],
+      "lat": 55.9533,
+      "lng": -3.1883,
+      "seo_keywords": ["edinburgh butchers", "scottish haggis", "traditional edinburgh butchers", "royal mile butchers"]
+    },
+    {
+      "name": "Sheffield",
+      "county": "South Yorkshire",
+      "region": "Yorkshire and the Humber",
+      "population": 685368,
+      "postcode_areas": ["S"],
+      "lat": 53.3811,
+      "lng": -1.4701,
+      "seo_keywords": ["sheffield butchers", "yorkshire butchers", "steel city meat", "traditional sheffield butchers"]
+    },
+    {
+      "name": "Bristol",
+      "county": "Somerset",
+      "region": "South West",
+      "population": 472465,
+      "postcode_areas": ["BS"],
+      "lat": 51.4545,
+      "lng": -2.5879,
+      "seo_keywords": ["bristol butchers", "south west meat", "sustainable butchers bristol", "local meat bristol"]
+    },
+    {
+      "name": "Cardiff",
+      "county": "Wales",
+      "region": "Wales",
+      "population": 372089,
+      "postcode_areas": ["CF"],
+      "lat": 51.4816,
+      "lng": -3.1791,
+      "seo_keywords": ["cardiff butchers", "welsh meat", "wales butchers", "cardiff quality meat"]
+    },
+    {
+      "name": "Newcastle",
+      "county": "Tyne and Wear",
+      "region": "North East",
+      "population": 300196,
+      "postcode_areas": ["NE"],
+      "lat": 54.9783,
+      "lng": -1.6178,
+      "seo_keywords": ["newcastle butchers", "geordie meat", "north east butchers", "tyneside butchers"]
+    },
+    {
+      "name": "Leicester",
+      "county": "Leicestershire",
+      "region": "East Midlands",
+      "population": 368600,
+      "postcode_areas": ["LE"],
+      "lat": 52.6369,
+      "lng": -1.1398,
+      "seo_keywords": ["leicester butchers", "halal butchers leicester", "midlands meat", "multicultural butchers"]
+    },
+    {
+      "name": "Coventry",
+      "county": "West Midlands",
+      "region": "West Midlands",
+      "population": 345385,
+      "postcode_areas": ["CV"],
+      "lat": 52.4068,
+      "lng": -1.5197,
+      "seo_keywords": ["coventry butchers", "west midlands meat", "traditional coventry butchers", "local meat coventry"]
+    },
+    {
+      "name": "Bradford",
+      "county": "West Yorkshire",
+      "region": "Yorkshire and the Humber",
+      "population": 349561,
+      "postcode_areas": ["BD"],
+      "lat": 53.7960,
+      "lng": -1.7594,
+      "seo_keywords": ["bradford butchers", "halal meat bradford", "yorkshire dales meat", "bradford quality butchers"]
+    },
+    {
+      "name": "Nottingham",
+      "county": "Nottinghamshire",
+      "region": "East Midlands",
+      "population": 321500,
+      "postcode_areas": ["NG"],
+      "lat": 52.9548,
+      "lng": -1.1581,
+      "seo_keywords": ["nottingham butchers", "robin hood meat", "nottinghamshire butchers", "local nottingham meat"]
+    }
+  ],
+  "major_towns": [
+    {
+      "name": "Milton Keynes",
+      "county": "Buckinghamshire",
+      "region": "South East",
+      "population": 290800,
+      "postcode_areas": ["MK"],
+      "lat": 52.0406,
+      "lng": -0.7594,
+      "seo_keywords": ["milton keynes butchers", "buckinghamshire meat", "mk butchers", "new town butchers"]
+    },
+    {
+      "name": "Northampton",
+      "county": "Northamptonshire",
+      "region": "East Midlands",
+      "population": 249093,
+      "postcode_areas": ["NN"],
+      "lat": 52.2405,
+      "lng": -0.9027,
+      "seo_keywords": ["northampton butchers", "northamptonshire meat", "shoemaker town butchers", "traditional northampton meat"]
+    },
+    {
+      "name": "Luton",
+      "county": "Bedfordshire",
+      "region": "East of England",
+      "population": 225262,
+      "postcode_areas": ["LU"],
+      "lat": 51.8787,
+      "lng": -0.4200,
+      "seo_keywords": ["luton butchers", "bedfordshire meat", "airport town butchers", "multicultural meat luton"]
+    },
+    {
+      "name": "Basildon",
+      "county": "Essex",
+      "region": "East of England",
+      "population": 115955,
+      "postcode_areas": ["SS"],
+      "lat": 51.5760,
+      "lng": 0.4887,
+      "seo_keywords": ["basildon butchers", "essex meat", "new town meat", "basildon quality butchers"]
+    },
+    {
+      "name": "Bournemouth",
+      "county": "Dorset",
+      "region": "South West",
+      "population": 198110,
+      "postcode_areas": ["BH"],
+      "lat": 50.7192,
+      "lng": -1.8808,
+      "seo_keywords": ["bournemouth butchers", "dorset meat", "coastal butchers", "seaside quality meat"]
+    },
+    {
+      "name": "Reading",
+      "county": "Berkshire",
+      "region": "South East",
+      "population": 174224,
+      "postcode_areas": ["RG"],
+      "lat": 51.4543,
+      "lng": -0.9781,
+      "seo_keywords": ["reading butchers", "berkshire meat", "thames valley butchers", "reading quality meat"]
+    },
+    {
+      "name": "Swindon",
+      "county": "Wiltshire",
+      "region": "South West",
+      "population": 230000,
+      "postcode_areas": ["SN"],
+      "lat": 51.5558,
+      "lng": -1.7797,
+      "seo_keywords": ["swindon butchers", "wiltshire meat", "railway town butchers", "swindon local meat"]
+    },
+    {
+      "name": "Huddersfield",
+      "county": "West Yorkshire",
+      "region": "Yorkshire and the Humber",
+      "population": 162949,
+      "postcode_areas": ["HD"],
+      "lat": 53.6458,
+      "lng": -1.7850,
+      "seo_keywords": ["huddersfield butchers", "pennine meat", "yorkshire town butchers", "textile town meat"]
+    },
+    {
+      "name": "Middlesbrough",
+      "county": "North Yorkshire",
+      "region": "North East",
+      "population": 174700,
+      "postcode_areas": ["TS"],
+      "lat": 54.5742,
+      "lng": -1.2351,
+      "seo_keywords": ["middlesbrough butchers", "teesside meat", "north yorkshire butchers", "industrial town meat"]
+    },
+    {
+      "name": "Blackpool",
+      "county": "Lancashire",
+      "region": "North West",
+      "population": 139305,
+      "postcode_areas": ["FY"],
+      "lat": 53.8175,
+      "lng": -3.0357,
+      "seo_keywords": ["blackpool butchers", "lancashire meat", "seaside butchers", "tower town meat"]
+    }
+  ],
+  "counties": [
+    {
+      "name": "Kent",
+      "region": "South East",
+      "population": 1846478,
+      "major_towns": ["Canterbury", "Maidstone", "Dover", "Folkestone", "Tunbridge Wells"],
+      "seo_keywords": ["kent butchers", "garden of england meat", "kentish butchers", "hop county meat"]
+    },
+    {
+      "name": "Essex",
+      "region": "East of England",
+      "population": 1832751,
+      "major_towns": ["Chelmsford", "Colchester", "Southend-on-Sea", "Basildon", "Harlow"],
+      "seo_keywords": ["essex butchers", "east anglian meat", "essex quality butchers", "coastal county meat"]
+    },
+    {
+      "name": "Hampshire",
+      "region": "South East",
+      "population": 1844245,
+      "major_towns": ["Southampton", "Portsmouth", "Winchester", "Basingstoke", "Eastleigh"],
+      "seo_keywords": ["hampshire butchers", "new forest meat", "solent butchers", "hampshire quality meat"]
+    },
+    {
+      "name": "Surrey",
+      "region": "South East",
+      "population": 1196236,
+      "major_towns": ["Guildford", "Woking", "Epsom", "Reigate", "Camberley"],
+      "seo_keywords": ["surrey butchers", "home counties meat", "commuter belt butchers", "premium surrey meat"]
+    },
+    {
+      "name": "Lancashire",
+      "region": "North West",
+      "population": 1498300,
+      "major_towns": ["Preston", "Blackburn", "Burnley", "Lancaster", "Chorley"],
+      "seo_keywords": ["lancashire butchers", "red rose county meat", "pennine butchers", "lancashire black pudding"]
+    },
+    {
+      "name": "West Yorkshire",
+      "region": "Yorkshire and the Humber",
+      "population": 2320214,
+      "major_towns": ["Leeds", "Bradford", "Kirklees", "Wakefield", "Calderdale"],
+      "seo_keywords": ["west yorkshire butchers", "white rose meat", "pennine butchers", "yorkshire pudding meat"]
+    },
+    {
+      "name": "Staffordshire",
+      "region": "West Midlands",
+      "population": 1131052,
+      "major_towns": ["Stoke-on-Trent", "Stafford", "Burton upon Trent", "Cannock", "Newcastle-under-Lyme"],
+      "seo_keywords": ["staffordshire butchers", "potteries meat", "moorlands butchers", "staffordshire oatcakes"]
+    },
+    {
+      "name": "Lincolnshire",
+      "region": "East Midlands",
+      "population": 1087659,
+      "major_towns": ["Lincoln", "Boston", "Grantham", "Spalding", "Skegness"],
+      "seo_keywords": ["lincolnshire butchers", "yellowbelly meat", "fenland butchers", "lincolnshire sausage"]
+    },
+    {
+      "name": "Norfolk",
+      "region": "East of England",
+      "population": 907760,
+      "major_towns": ["Norwich", "Great Yarmouth", "King's Lynn", "Thetford", "Dereham"],
+      "seo_keywords": ["norfolk butchers", "east anglian meat", "broads butchers", "norfolk turkey"]
+    },
+    {
+      "name": "Devon",
+      "region": "South West",
+      "population": 1194166,
+      "major_towns": ["Plymouth", "Exeter", "Torquay", "Paignton", "Barnstaple"],
+      "seo_keywords": ["devon butchers", "westcountry meat", "dartmoor butchers", "devon cream meat"]
+    }
+  ],
+  "regions": [
+    {
+      "name": "London",
+      "population": 9648110,
+      "description": "The capital city and largest urban area in the UK",
+      "seo_keywords": ["london butchers directory", "capital city meat", "metropolitan butchers", "london premium meat"]
+    },
+    {
+      "name": "South East",
+      "population": 9180135,
+      "description": "Prosperous region surrounding London",
+      "seo_keywords": ["south east butchers", "home counties meat", "prosperous region butchers", "commuter belt meat"]
+    },
+    {
+      "name": "North West",
+      "population": 7367456,
+      "description": "Industrial heritage region including Manchester and Liverpool",
+      "seo_keywords": ["north west butchers", "industrial heritage meat", "manchester liverpool butchers", "lancashire meat"]
+    },
+    {
+      "name": "East of England",
+      "population": 6236072,
+      "description": "Agricultural region known as East Anglia",
+      "seo_keywords": ["east england butchers", "east anglia meat", "agricultural region butchers", "fenland meat"]
+    },
+    {
+      "name": "West Midlands",
+      "population": 5934037,
+      "description": "Industrial heartland centered on Birmingham",
+      "seo_keywords": ["west midlands butchers", "birmingham region meat", "industrial heartland butchers", "black country meat"]
+    },
+    {
+      "name": "South West",
+      "population": 5685656,
+      "description": "Rural region known for agriculture and tourism",
+      "seo_keywords": ["south west butchers", "westcountry meat", "rural region butchers", "cornish devon meat"]
+    },
+    {
+      "name": "Yorkshire and the Humber",
+      "population": 5502967,
+      "description": "Historic region with strong culinary traditions",
+      "seo_keywords": ["yorkshire butchers", "humber region meat", "gods own county butchers", "yorkshire pudding meat"]
+    },
+    {
+      "name": "East Midlands",
+      "population": 4865590,
+      "description": "Central England region with manufacturing heritage",
+      "seo_keywords": ["east midlands butchers", "central england meat", "manufacturing region butchers", "peak district meat"]
+    },
+    {
+      "name": "North East",
+      "population": 2647910,
+      "description": "Northernmost English region with maritime heritage",
+      "seo_keywords": ["north east butchers", "geordie meat", "maritime heritage butchers", "hadrians wall meat"]
+    },
+    {
+      "name": "Scotland",
+      "population": 5463300,
+      "description": "Northern country known for haggis and highland beef",
+      "seo_keywords": ["scotland butchers", "scottish meat", "haggis black pudding", "highland beef"]
+    },
+    {
+      "name": "Wales",
+      "population": 3152879,
+      "description": "Western country known for lamb and traditional foods",
+      "seo_keywords": ["wales butchers", "welsh meat", "welsh lamb", "valleys butchers"]
+    },
+    {
+      "name": "Northern Ireland",
+      "population": 1895510,
+      "description": "Northern Irish region with strong agricultural traditions",
+      "seo_keywords": ["northern ireland butchers", "ulster meat", "irish butchers", "belfast butchers"]
+    }
+  ]
+}
