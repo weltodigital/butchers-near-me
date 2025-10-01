@@ -111,7 +111,7 @@ export default function GoogleMap({
 
       if (!apiKey || apiKey === 'YOUR_GOOGLE_MAPS_API_KEY_HERE') {
         if (isMounted) {
-          setError('Google Maps API key not configured')
+          setError('Maps temporarily unavailable')
           setIsLoading(false)
         }
         return
