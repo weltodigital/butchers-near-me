@@ -76,6 +76,13 @@ export default function GoogleMap({
 
         // Load the script
         const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+        console.log('GoogleMap: API Key check:', apiKey ? 'Key exists' : 'Key missing')
+
+        if (!apiKey) {
+          reject(new Error('Google Maps API key not found'))
+          return
+        }
+
         const script = document.createElement('script')
         script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=maps&v=weekly&callback=initGoogleMaps`
         script.async = true
