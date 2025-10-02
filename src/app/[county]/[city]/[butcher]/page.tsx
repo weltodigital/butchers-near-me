@@ -365,14 +365,14 @@ export default async function ButcherPage({ params }: ButcherPageProps) {
                 </Card>
 
                 {/* Images Gallery */}
-                {butcherData.images && butcherData.images.length > 0 && (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Photos of {butcherData.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {butcherData.images.map((image, index) => (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Photos of {butcherData.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {butcherData.images && butcherData.images.length > 0 ? (
+                        butcherData.images.map((image, index) => (
                           <div key={index} className="relative h-48 bg-gray-100 rounded-lg overflow-hidden">
                             <img
                               src={image}
@@ -380,11 +380,19 @@ export default async function ButcherPage({ params }: ButcherPageProps) {
                               className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
                             />
                           </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
+                        ))
+                      ) : (
+                        <div className="relative h-48 bg-gray-100 rounded-lg overflow-hidden">
+                          <img
+                            src="/images/butchers near me.png"
+                            alt={`${butcherData.name} - Butcher shop`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Sidebar */}

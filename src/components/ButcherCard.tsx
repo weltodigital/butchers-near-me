@@ -81,20 +81,18 @@ export default function ButcherCard({
 
       <CardContent className="space-y-4">
         {/* Butcher Images */}
-        {butcher.images && butcher.images.length > 0 && (
-          <div className="relative h-48 bg-gray-100 rounded-lg overflow-hidden">
-            <img
-              src={butcher.images[0]}
-              alt={`${butcher.name} - Butcher shop`}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
-            />
-            {butcher.images.length > 1 && (
-              <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
-                +{butcher.images.length - 1} more
-              </div>
-            )}
-          </div>
-        )}
+        <div className="relative h-48 bg-gray-100 rounded-lg overflow-hidden">
+          <img
+            src={butcher.images && butcher.images.length > 0 ? butcher.images[0] : '/images/butchers near me.png'}
+            alt={`${butcher.name} - Butcher shop`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+          />
+          {butcher.images && butcher.images.length > 1 && (
+            <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+              +{butcher.images.length - 1} more
+            </div>
+          )}
+        </div>
 
         {/* Contact Information */}
         <div className="space-y-2">
