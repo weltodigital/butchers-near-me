@@ -49,10 +49,20 @@ interface Butcher {
 }
 
 async function getCountiesWithLocations(): Promise<CountyWithLocations[]> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables, returning empty data');
+    return [];
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client');
+    return [];
+  }
 
   // Get all counties
   const { data: counties, error: countiesError } = await supabase
@@ -86,10 +96,20 @@ async function getCountiesWithLocations(): Promise<CountyWithLocations[]> {
 }
 
 async function getFeaturedButchers(): Promise<Butcher[]> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables, returning empty butchers');
+    return [];
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client for butchers');
+    return [];
+  }
 
   const { data, error } = await supabase
     .from('public_butchers')

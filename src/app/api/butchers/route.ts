@@ -3,6 +3,13 @@ import { supabase } from '@/lib/supabase'
 
 export async function GET(request: Request) {
   try {
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Database not available', butchers: [] },
+        { status: 503 }
+      )
+    }
+
     const { searchParams } = new URL(request.url)
     const city = searchParams.get('city')
     const search = searchParams.get('search')
