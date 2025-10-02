@@ -213,7 +213,7 @@ export default function GoogleMap({
                 </div>
                 <div class="flex gap-2 text-sm">
                   ${butcher.phone ? `<a href="tel:${butcher.phone}" class="text-red-600 hover:underline">Call</a>` : ''}
-                  ${butcher.website ? `<a href="${butcher.website}" target="_blank" class="text-red-600 hover:underline">Website</a>` : ''}
+                  ${butcher.website ? `<a href="${butcher.website}" target="_blank" rel="nofollow noopener noreferrer" class="text-red-600 hover:underline">Website</a>` : ''}
                   ${butcher.full_url_path ? `<a href="/${butcher.full_url_path}" class="text-red-600 hover:underline">Details</a>` : ''}
                 </div>
               </div>

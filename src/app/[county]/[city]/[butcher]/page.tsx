@@ -414,7 +414,7 @@ export default async function ButcherPage({ params }: ButcherPageProps) {
                     {butcherData.website && (
                       <div className="flex items-center gap-3">
                         <Globe className="h-5 w-5 text-gray-400" />
-                        <a href={butcherData.website} target="_blank" rel="noopener noreferrer" className="text-red-600 hover:underline">
+                        <a href={butcherData.website} target="_blank" rel="nofollow noopener noreferrer" className="text-red-600 hover:underline">
                           Visit Website
                         </a>
                       </div>
