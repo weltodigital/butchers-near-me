@@ -1,16 +1,24 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables')
+// Only create client if environment variables are available
+let supabase = null
+if (supabaseUrl && supabaseAnonKey) {
+  supabase = createSupabaseClient(supabaseUrl, supabaseAnonKey)
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export { supabase }
 
 // Export the createClient function for use in server components
-export { createClient }
+export function createClient(url, key) {
+  if (!url || !key) {
+    console.warn('Missing Supabase credentials for createClient')
+    return null
+  }
+  return createSupabaseClient(url, key)
+}
 
 // Database schema setup function
 export async function setupDatabaseSchema() {

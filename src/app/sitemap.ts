@@ -28,6 +28,11 @@ async function getCounties(): Promise<County[]> {
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
+    if (!supabase) {
+      console.warn('Supabase client not available');
+      return [];
+    }
+
     const { data, error } = await supabase
       .from('public_locations')
       .select('slug, created_at')
@@ -56,6 +61,11 @@ async function getCitiesAndTowns(): Promise<CityTown[]> {
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
+    if (!supabase) {
+      console.warn('Supabase client not available');
+      return [];
+    }
+
     const { data, error } = await supabase
       .from('public_locations')
       .select('full_path, created_at')
@@ -83,6 +93,11 @@ async function getButchers(): Promise<Butcher[]> {
       process.env.SUPABASE_URL,
       process.env.SUPABASE_SERVICE_ROLE_KEY
     );
+
+    if (!supabase) {
+      console.warn('Supabase client not available');
+      return [];
+    }
 
     const { data, error } = await supabase
       .from('public_butchers')
