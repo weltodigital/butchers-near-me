@@ -66,7 +66,7 @@ export default async function Footer() {
           <div>
             <h4 className="font-semibold mb-4 font-cooper">Company</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-white">Contact</a></li>
+              <li><a href="mailto:butchersnearme@weltodigital.com" className="hover:text-white">butchersnearme@weltodigital.com</a></li>
               <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link></li>
               <li><Link href="/sitemap.xml" className="hover:text-white">Sitemap</Link></li>
