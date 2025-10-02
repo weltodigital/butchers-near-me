@@ -47,10 +47,20 @@ interface Location {
 }
 
 async function getButcher(countySlug: string, citySlug: string, butcherSlug: string): Promise<Butcher | null> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables for getButcher');
+    return null;
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client for getButcher');
+    return null;
+  }
 
   // We need to find the butcher by matching the URL path structure
   const urlPath = `${countySlug}/${citySlug}/${butcherSlug}`;
@@ -82,10 +92,20 @@ async function getButcher(countySlug: string, citySlug: string, butcherSlug: str
 
 
 async function getLocationInfo(countySlug: string, citySlug: string): Promise<{ county: Location | null; city: Location | null }> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables for getLocationInfo');
+    return { county: null, city: null };
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client for getLocationInfo');
+    return { county: null, city: null };
+  }
 
   const [countyResult, cityResult] = await Promise.all([
     supabase
@@ -458,10 +478,20 @@ export default async function ButcherPage({ params }: ButcherPageProps) {
 
 export async function generateStaticParams() {
   try {
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.warn('Missing Supabase environment variables for generateStaticParams');
+      return [];
+    }
+
     const supabase = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
     );
+
+    if (!supabase) {
+      console.warn('Failed to create Supabase client for generateStaticParams');
+      return [];
+    }
 
     const { data: butchers } = await supabase
       .from('public_butchers')

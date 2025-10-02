@@ -273,10 +273,20 @@ export default async function CountyPage({ params }: CountyPageProps) {
 
 export async function generateStaticParams() {
   try {
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.warn('Missing Supabase environment variables for county generateStaticParams');
+      return [];
+    }
+
     const supabase = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
     );
+
+    if (!supabase) {
+      console.warn('Failed to create Supabase client for county generateStaticParams');
+      return [];
+    }
 
     const { data: counties } = await supabase
       .from('public_locations')
