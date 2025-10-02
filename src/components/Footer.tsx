@@ -9,10 +9,20 @@ interface County {
 }
 
 async function getCounties(): Promise<County[]> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables for Footer counties');
+    return [];
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client for Footer');
+    return [];
+  }
 
   const { data, error } = await supabase
     .from('public_locations')
@@ -25,7 +35,7 @@ async function getCounties(): Promise<County[]> {
     return [];
   }
 
-  return data as County[];
+  return data as County[] || [];
 }
 
 export default async function Footer() {
