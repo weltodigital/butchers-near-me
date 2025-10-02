@@ -66,10 +66,20 @@ interface Butcher {
 }
 
 async function getCityData(countySlug: string, citySlug: string): Promise<{ location: Location | null; county: County | null }> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables for getCityData');
+    return { location: null, county: null };
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client for getCityData');
+    return { location: null, county: null };
+  }
 
   // Get the county first
   const { data: countyData } = await supabase
@@ -103,10 +113,20 @@ async function getCityData(countySlug: string, citySlug: string): Promise<{ loca
 }
 
 async function getCityButchers(countySlug: string, citySlug: string): Promise<Butcher[]> {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    console.warn('Missing Supabase environment variables for getCityButchers');
+    return [];
+  }
+
   const supabase = createClient(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
   );
+
+  if (!supabase) {
+    console.warn('Failed to create Supabase client for getCityButchers');
+    return [];
+  }
 
   const { data, error } = await supabase
     .from('public_butchers')
