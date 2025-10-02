@@ -18,9 +18,14 @@ interface Butcher {
 
 async function getCounties(): Promise<County[]> {
   try {
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.warn('Missing Supabase environment variables, returning empty counties');
+      return [];
+    }
+
     const supabase = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
     const { data, error } = await supabase
@@ -41,9 +46,14 @@ async function getCounties(): Promise<County[]> {
 
 async function getCitiesAndTowns(): Promise<CityTown[]> {
   try {
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.warn('Missing Supabase environment variables, returning empty cities/towns');
+      return [];
+    }
+
     const supabase = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
     const { data, error } = await supabase
@@ -64,9 +74,14 @@ async function getCitiesAndTowns(): Promise<CityTown[]> {
 
 async function getButchers(): Promise<Butcher[]> {
   try {
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      console.warn('Missing Supabase environment variables, returning empty butchers');
+      return [];
+    }
+
     const supabase = createClient(
-      process.env.SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
     );
 
     const { data, error } = await supabase
