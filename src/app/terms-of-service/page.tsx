@@ -34,7 +34,7 @@ export default function TermsOfService() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Agreement to Terms</h2>
               <p className="text-gray-700 mb-4">
-                These Terms of Service ("Terms") constitute a legally binding agreement between you and Butchers Near Me ("we," "us," or "our") regarding your use of the website findabutchers.co.uk (the "Service").
+                These Terms of Service ("Terms") constitute a legally binding agreement between you and Butchers Near Me ("we," "us," or "our") regarding your use of the website butchersnearme.co.uk (the "Service").
               </p>
               <p className="text-gray-700">
                 By accessing or using our Service, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Service.
@@ -189,8 +189,8 @@ export default function TermsOfService() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
                   <strong>Butchers Near Me</strong><br />
-                  Email: legal@findabutchers.co.uk<br />
-                  Website: <Link href="/" className="text-red-600 hover:underline">findabutchers.co.uk</Link>
+                  Email: legal@butchersnearme.co.uk<br />
+                  Website: <Link href="/" className="text-red-600 hover:underline">butchersnearme.co.uk</Link>
                 </p>
               </div>
             </section>

@@ -101,14 +101,14 @@ function StructuredData({ county, citiesAndTowns }: { county: Location; citiesAn
     '@type': 'WebPage',
     name: county.seo_title,
     description: county.meta_description,
-    url: `https://findabutchers.co.uk/${county.slug}`,
+    url: `https://butchersnearme.co.uk/${county.slug}`,
     mainEntity: {
       '@type': 'AdministrativeArea',
       name: county.name,
       containsPlace: citiesAndTowns.map(place => ({
         '@type': place.type === 'city' ? 'City' : 'Place',
         name: place.name,
-        url: `https://findabutchers.co.uk/${place.full_path}`
+        url: `https://butchersnearme.co.uk/${place.full_path}`
       }))
     },
     breadcrumb: {
@@ -118,13 +118,13 @@ function StructuredData({ county, citiesAndTowns }: { county: Location; citiesAn
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://findabutchers.co.uk'
+          item: 'https://butchersnearme.co.uk'
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: county.name,
-          item: `https://findabutchers.co.uk/${county.slug}`
+          item: `https://butchersnearme.co.uk/${county.slug}`
         }
       ]
     }

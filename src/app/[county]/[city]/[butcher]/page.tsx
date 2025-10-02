@@ -176,7 +176,7 @@ function StructuredData({ butcher, county, city }: {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `https://meatmap.co.uk/${butcher.full_url_path}`,
+    '@id': `https://butchersnearme.co.uk/${butcher.full_url_path}`,
     name: butcher.name,
     description: butcher.description,
     address: {
@@ -229,25 +229,25 @@ function StructuredData({ butcher, county, city }: {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://meatmap.co.uk'
+        item: 'https://butchersnearme.co.uk'
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: county?.name || butcher.county,
-        item: `https://meatmap.co.uk/${butcher.county_slug}`
+        item: `https://butchersnearme.co.uk/${butcher.county_slug}`
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: city?.name || butcher.city,
-        item: `https://meatmap.co.uk/${butcher.county_slug}/${butcher.city_slug}`
+        item: `https://butchersnearme.co.uk/${butcher.county_slug}/${butcher.city_slug}`
       },
       {
         '@type': 'ListItem',
         position: 4,
         name: butcher.name,
-        item: `https://meatmap.co.uk/${butcher.full_url_path}`
+        item: `https://butchersnearme.co.uk/${butcher.full_url_path}`
       }
     ]
   };

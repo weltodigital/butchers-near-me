@@ -116,7 +116,7 @@ async function getButchers(): Promise<Butcher[]> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://meatmap.co.uk';
+  const baseUrl = 'https://butchersnearme.co.uk';
 
   const counties = await getCounties();
   const citiesAndTowns = await getCitiesAndTowns();

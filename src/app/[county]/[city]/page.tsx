@@ -178,7 +178,7 @@ function StructuredData({ location, county, butchers }: { location: Location; co
     '@type': 'WebPage',
     name: location.seo_title,
     description: location.meta_description,
-    url: `https://findabutchers.co.uk/${location.full_path}`,
+    url: `https://butchersnearme.co.uk/${location.full_path}`,
     mainEntity: {
       '@type': 'ItemList',
       name: `Butchers in ${location.name}`,
@@ -186,7 +186,7 @@ function StructuredData({ location, county, butchers }: { location: Location; co
       numberOfItems: butchers.length,
       itemListElement: butchers.map((butcher, index) => ({
         '@type': 'LocalBusiness',
-        '@id': `https://findabutchers.co.uk/${butcher.full_url_path}`,
+        '@id': `https://butchersnearme.co.uk/${butcher.full_url_path}`,
         position: index + 1,
         name: butcher.name,
         description: butcher.description,
@@ -216,19 +216,19 @@ function StructuredData({ location, county, butchers }: { location: Location; co
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://findabutchers.co.uk'
+          item: 'https://butchersnearme.co.uk'
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: county.name,
-          item: `https://findabutchers.co.uk/${county.slug}`
+          item: `https://butchersnearme.co.uk/${county.slug}`
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: location.name,
-          item: `https://findabutchers.co.uk/${location.full_path}`
+          item: `https://butchersnearme.co.uk/${location.full_path}`
         }
       ]
     }
