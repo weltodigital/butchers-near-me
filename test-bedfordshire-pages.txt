@@ -1,0 +1,23 @@
+Based on our previous data addition, these Bedfordshire pages should show butchers:
+
+URLs to check:
+- /bedfordshire/bedford (should have The Meat Market, Bedford Butchers)
+- /bedfordshire/luton (should have Luton Butchers, Quality Meats Luton)
+- /bedfordshire/dunstable (should have Dunstable Family Butchers)
+- /bedfordshire/leighton-buzzard (should have Buzzard Butchers)
+- /bedfordshire/biggleswade (should have Village Butcher)
+- /bedfordshire/sandy (should have Sandy Meat Co)
+- /bedfordshire/ampthill (should have Ampthill Traditional Butchers)
+- /bedfordshire/flitwick (should have Flitwick Butchers)
+
+Issues to check:
+1. Did you run the fix-public-butchers-view-properly.sql in Supabase?
+2. Are the city slugs matching between locations and butchers?
+3. Is the website caching old data?
+4. Are there console errors in the browser/server?
+
+Next steps:
+1. Run debug-butchers.sql in Supabase to check data
+2. Clear browser cache / restart dev server
+3. Check browser console for errors
+4. Verify city slug matching

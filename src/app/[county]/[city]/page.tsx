@@ -128,6 +128,8 @@ async function getCityButchers(countySlug: string, citySlug: string): Promise<Bu
     return [];
   }
 
+  console.log(`🔍 Searching for butchers: county_slug='${countySlug}', city_slug='${citySlug}'`);
+
   const { data, error } = await supabase
     .from('public_butchers')
     .select('*')
@@ -136,8 +138,13 @@ async function getCityButchers(countySlug: string, citySlug: string): Promise<Bu
     .order('rating', { ascending: false })
     .limit(20);
 
+  console.log(`📊 Query result: ${data?.length || 0} butchers found`);
+  if (data?.length > 0) {
+    console.log('✅ Found butchers:', data.map(b => b.name));
+  }
+
   if (error) {
-    console.error('Error fetching city butchers:', error);
+    console.error('❌ Error fetching city butchers:', error);
     return [];
   }
 
