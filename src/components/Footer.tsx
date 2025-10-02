@@ -69,6 +69,7 @@ export default async function Footer() {
               <li><a href="#" className="hover:text-white">Contact</a></li>
               <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-white">Terms of Service</Link></li>
+              <li><Link href="/sitemap.xml" className="hover:text-white">Sitemap</Link></li>
             </ul>
           </div>
         </div>
