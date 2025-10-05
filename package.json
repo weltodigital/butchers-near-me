@@ -19,7 +19,10 @@
     "scrape:simple": "node scripts/simple-scrape.js",
     "scrape:real": "node scripts/scrape-real-butchers.js",
     "populate:realistic": "node scripts/populate-realistic-data.js",
-    "scrape:google": "node scripts/google-places-scraper.js"
+    "scrape:google": "node scripts/google-places-scraper.js",
+    "scrape:bedfordshire": "node scripts/scrape-bedfordshire-butchers.js",
+    "scrape:bedfordshire-google": "node scripts/google-places-bedfordshire.js",
+    "fix:duplicates": "node scripts/fix-duplicate-locations.js"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^2.0.0",
