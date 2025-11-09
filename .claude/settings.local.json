@@ -5,7 +5,12 @@
       "Bash(curl:*)",
       "Bash(pkill:*)",
       "Read(//Users/edwelton/Downloads/**)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

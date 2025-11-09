@@ -1,15 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Butchers Near Me - Quality Butchers Directory UK',
-  description: 'Discover the best butcher shops across the UK with detailed information, reviews, and location data. Find your perfect butcher today.',
-  keywords: 'butcher, meat, UK, directory, local, quality, reviews, London, Manchester, Edinburgh',
+  title: 'Butchers Near Me - Find Quality Local Butchers in the UK',
+  description: 'Discover the best local butchers near you across the UK. Find quality meat, contact details, reviews, and directions to traditional butcher shops in your area.',
+  keywords: 'butchers, local butchers, meat shop, UK butchers, quality meat, butchers near me',
 }
 
 export default function RootLayout({
@@ -19,11 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

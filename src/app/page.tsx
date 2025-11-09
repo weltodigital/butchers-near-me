@@ -1,290 +1,136 @@
+import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { MapPin, Star, Filter } from 'lucide-react'
-import { createClient } from '@/lib/supabase'
-import ButcherCard from '@/components/ButcherCard'
-
-interface County {
-  id: string;
-  name: string;
-  slug: string;
-  butcher_count: number;
-}
-
-interface CityTown {
-  id: string;
-  name: string;
-  slug: string;
-  full_path: string;
-  county_slug: string;
-  butcher_count: number;
-  type: 'city' | 'town';
-}
-
-interface CountyWithLocations {
-  county: County;
-  locations: CityTown[];
-}
-
-interface Butcher {
-  id: string;
-  name: string;
-  description: string;
-  address: string;
-  postcode: string;
-  city: string;
-  county: string;
-  phone: string;
-  website: string;
-  latitude?: number;
-  longitude?: number;
-  rating: number;
-  review_count: number;
-  specialties: string[];
-  opening_hours: Record<string, string>;
-  images: string[];
-  created_at: string;
-  updated_at: string;
-  full_url_path: string;
-}
-
-async function getCountiesWithLocations(): Promise<CountyWithLocations[]> {
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.warn('Missing Supabase environment variables, returning empty data');
-    return [];
-  }
-
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
-  if (!supabase) {
-    console.warn('Failed to create Supabase client');
-    return [];
-  }
-
-  // Get all counties
-  const { data: counties, error: countiesError } = await supabase
-    .from('public_locations')
-    .select('id, name, slug, butcher_count')
-    .eq('type', 'county')
-    .order('name');
-
-  if (countiesError) {
-    console.error('Error fetching counties:', countiesError);
-    return [];
-  }
-
-  // Get all cities and towns
-  const { data: citiesAndTowns, error: locationsError } = await supabase
-    .from('public_locations')
-    .select('id, name, slug, full_path, county_slug, butcher_count, type')
-    .in('type', ['city', 'town'])
-    .order('name');
-
-  if (locationsError) {
-    console.error('Error fetching cities and towns:', locationsError);
-    return [];
-  }
-
-  // Group locations by county
-  return counties.map(county => ({
-    county,
-    locations: citiesAndTowns.filter(location => location.county_slug === county.slug)
-  }));
-}
-
-async function getFeaturedButchers(): Promise<Butcher[]> {
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    console.warn('Missing Supabase environment variables, returning empty butchers');
-    return [];
-  }
-
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
-  if (!supabase) {
-    console.warn('Failed to create Supabase client for butchers');
-    return [];
-  }
-
-  const { data, error } = await supabase
-    .from('public_butchers')
-    .select('*')
-    .order('rating', { ascending: false })
-    .limit(3);
-
-  if (error) {
-    console.error('Error fetching featured butchers:', error);
-    return [];
-  }
-
-  return data as Butcher[];
-}
 
 export default async function Home() {
-  const countiesWithLocations = await getCountiesWithLocations();
-  const featuredButchers = await getFeaturedButchers();
+  const { data: butchers, error } = await supabase
+    .from('butchers')
+    .select('id, name, city, address, phone, website, rating, review_count')
+    .eq('is_active', true)
+    .order('rating', { ascending: false })
+    .limit(12)
+
+  if (error) {
+    console.error('Error fetching butchers:', error)
+  }
+
+  const { count: totalButchers } = await supabase
+    .from('butchers')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_active', true)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-
-      {/* Hero Section with Background Image */}
-      <div className="relative min-h-screen flex items-center justify-center">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/find-a-butchers.png)',
-          }}
-        />
-
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40" />
-
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 py-16">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold text-white mb-6 font-cooper drop-shadow-lg">
-              Find Quality Butchers Near You
-            </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
-              Discover the best butcher shops across the UK with detailed information, photos, and location data
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-3 bg-red-600 hover:bg-red-700 text-white border-0 shadow-lg" asChild>
-                <Link href="#browse-all-butchers">Browse Butchers</Link>
-              </Button>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
+      <div className="container mx-auto px-4 py-8">
+        <header className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            Butchers Near Me
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Discover the finest local butchers across the UK. Find quality meat, traditional craftsmanship, and expert service in your area.
+          </p>
+          <div className="bg-white rounded-lg shadow-lg p-6 inline-block">
+            <p className="text-3xl font-bold text-red-600">{totalButchers || 0}</p>
+            <p className="text-gray-600">Quality Butchers Listed</p>
           </div>
-        </div>
-      </div>
+        </header>
 
-      <div className="container mx-auto px-4 py-16">
-
-        {/* Featured Butchers */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center font-cooper">
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
             Featured Butchers
           </h2>
-          {featuredButchers.length > 0 ? (
+
+          {butchers && butchers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredButchers.map((butcher) => (
-                <ButcherCard key={butcher.id} butcher={butcher} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-slate-600 dark:text-slate-400 text-lg">
-                No featured butchers available at the moment.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 py-8">
-        {/* All Locations by County Section */}
-        <div id="browse-all-butchers" className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center font-cooper">
-            Browse All Butchers
-          </h2>
-          {countiesWithLocations.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {countiesWithLocations.map(({ county, locations }) => (
-                <div key={county.id} className="bg-white dark:bg-slate-800 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
-                    <Link
-                      href={`/${county.slug}`}
-                      className="hover:text-red-600 transition-colors"
-                    >
-                      {county.name}
-                    </Link>
+              {butchers.map((butcher) => (
+                <div key={butcher.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {butcher.name}
                   </h3>
+                  <p className="text-gray-600 mb-2">
+                    📍 {butcher.city}
+                  </p>
+                  <p className="text-gray-600 mb-3 text-sm">
+                    {butcher.address}
+                  </p>
 
-                  {locations.length > 0 ? (
-                    <div className="space-y-2">
-                      {locations.map((location) => (
-                        <div key={location.id}>
-                          <Link
-                            href={`/${location.full_path}`}
-                            className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 text-sm transition-colors inline-block"
-                          >
-                            {location.name}
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-slate-500 dark:text-slate-400 text-sm italic">
-                      No cities or towns listed yet
-                    </p>
-                  )}
+                  <div className="flex items-center justify-between mb-4">
+                    {butcher.rating && (
+                      <div className="flex items-center">
+                        <span className="text-yellow-500">⭐</span>
+                        <span className="ml-1 text-gray-700">
+                          {butcher.rating} ({butcher.review_count || 0})
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex gap-2 text-sm">
+                    {butcher.phone && (
+                      <a
+                        href={`tel:${butcher.phone}`}
+                        className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                      >
+                        📞 Call
+                      </a>
+                    )}
+                    {butcher.website && (
+                      <a
+                        href={butcher.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                      >
+                        🌐 Visit
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-slate-600 dark:text-slate-400 text-lg">
-                No locations available at the moment.
-              </p>
+            <div className="text-center text-gray-600">
+              <p>No butchers found. Please check back later.</p>
             </div>
           )}
-        </div>
+        </section>
 
-        {/* Features Section */}
-        <div id="features" className="bg-white dark:bg-slate-800 rounded-lg p-8 shadow-lg mb-16">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center font-cooper">
-            Why Choose Butchers Near Me?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-6 w-6 text-red-600" />
-              </div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Local Discovery</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Find butchers in your area with detailed location information and directions
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="h-6 w-6 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Quality Information</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                View authentic information about butcher shops and their products to make informed decisions
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Filter className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Smart Search</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Filter by specialty, location, price range, and more to find your perfect butcher
-              </p>
-            </div>
+        <section className="text-center">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Find Butchers by Location
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Browse by city to find the perfect local butcher near you
+            </p>
+            <Link
+              href="/locations"
+              className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold"
+            >
+              Browse All Locations
+            </Link>
           </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-red-600 to-red-700 rounded-lg p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4 font-cooper">Ready to Find Your Perfect Butcher?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join thousands of customers who trust Butchers Near Me for quality butcher recommendations
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-3" asChild>
-              <Link href="#browse-all-butchers">Browse Butchers</Link>
-            </Button>
-          </div>
-        </div>
+        </section>
       </div>
+
+      <footer className="bg-gray-900 text-white mt-16 py-8">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-xl font-bold mb-4">Butchers Near Me</h3>
+          <p className="text-gray-400 mb-4">
+            Connecting you with quality local butchers across the UK
+          </p>
+          <div className="flex justify-center gap-6">
+            <Link href="/privacy" className="text-gray-400 hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white">
+              Terms of Service
+            </Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white">
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
