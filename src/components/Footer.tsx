@@ -51,6 +51,9 @@ export default function Footer() {
             <Link href="/terms-of-service" className="text-slate-400 hover:text-white transition-colors">
               Terms of Service
             </Link>
+            <Link href="/sitemap.xml" className="text-slate-400 hover:text-white transition-colors">
+              Sitemap
+            </Link>
             <Link href="mailto:butchersnearme@weltodigital.com" className="text-slate-400 hover:text-white transition-colors">
               Contact Us
             </Link>
