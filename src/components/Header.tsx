@@ -31,12 +31,6 @@ export default function Header() {
               Home
             </Link>
             <Link
-              href="/bedfordshire"
-              className="text-gray-700 hover:text-red-600 font-medium transition-colors"
-            >
-              Bedfordshire
-            </Link>
-            <Link
               href="/gloucestershire"
               className="text-gray-700 hover:text-red-600 font-medium transition-colors"
             >
@@ -49,22 +43,22 @@ export default function Header() {
               Devon
             </Link>
             <Link
-              href="/yorkshire"
+              href="/west-midlands"
               className="text-gray-700 hover:text-red-600 font-medium transition-colors"
             >
-              Yorkshire
+              West Midlands
             </Link>
             <Link
-              href="/kent"
+              href="/wiltshire"
               className="text-gray-700 hover:text-red-600 font-medium transition-colors"
             >
-              Kent
+              Wiltshire
             </Link>
             <Link
-              href="/sussex"
+              href="/isle-of-wight"
               className="text-gray-700 hover:text-red-600 font-medium transition-colors"
             >
-              Sussex
+              Isle of Wight
             </Link>
           </nav>
 
@@ -95,13 +89,6 @@ export default function Header() {
                 Home
               </Link>
               <Link
-                href="/bedfordshire"
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Bedfordshire
-              </Link>
-              <Link
                 href="/gloucestershire"
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
@@ -116,25 +103,25 @@ export default function Header() {
                 Devon
               </Link>
               <Link
-                href="/yorkshire"
+                href="/west-midlands"
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Yorkshire
+                West Midlands
               </Link>
               <Link
-                href="/kent"
+                href="/wiltshire"
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Kent
+                Wiltshire
               </Link>
               <Link
-                href="/sussex"
+                href="/isle-of-wight"
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Sussex
+                Isle of Wight
               </Link>
             </nav>
           </div>

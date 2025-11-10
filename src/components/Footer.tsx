@@ -15,29 +15,29 @@ export default function Footer() {
         <div className="mb-8">
           <h4 className="text-lg font-semibold text-center mb-4">Find Butchers by County</h4>
           <div className="flex justify-center gap-6 flex-wrap">
-            <Link href="/bedfordshire" className="text-slate-400 hover:text-white transition-colors">
-              Bedfordshire
-            </Link>
             <Link href="/gloucestershire" className="text-slate-400 hover:text-white transition-colors">
               Gloucestershire
             </Link>
             <Link href="/devon" className="text-slate-400 hover:text-white transition-colors">
               Devon
             </Link>
-            <Link href="/yorkshire" className="text-slate-400 hover:text-white transition-colors">
-              Yorkshire
+            <Link href="/west-midlands" className="text-slate-400 hover:text-white transition-colors">
+              West Midlands
             </Link>
-            <Link href="/kent" className="text-slate-400 hover:text-white transition-colors">
-              Kent
+            <Link href="/wiltshire" className="text-slate-400 hover:text-white transition-colors">
+              Wiltshire
             </Link>
-            <Link href="/sussex" className="text-slate-400 hover:text-white transition-colors">
-              Sussex
+            <Link href="/isle-of-wight" className="text-slate-400 hover:text-white transition-colors">
+              Isle of Wight
             </Link>
-            <Link href="/hampshire" className="text-slate-400 hover:text-white transition-colors">
-              Hampshire
+            <Link href="/powys" className="text-slate-400 hover:text-white transition-colors">
+              Powys
             </Link>
-            <Link href="/essex" className="text-slate-400 hover:text-white transition-colors">
-              Essex
+            <Link href="/county-down" className="text-slate-400 hover:text-white transition-colors">
+              County Down
+            </Link>
+            <Link href="/dumfries-and-galloway" className="text-slate-400 hover:text-white transition-colors">
+              Dumfries and Galloway
             </Link>
           </div>
         </div>
