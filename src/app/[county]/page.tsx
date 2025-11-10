@@ -380,7 +380,7 @@ export default function CountyPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Community Support</h3>
                   <p className="text-gray-600">
                     Supporting local butchers helps sustain traditional craftsmanship, supports local economies,
-                    and maintains the character of {county}'s communities.
+                    and maintains the character of {county}&apos;s communities.
                   </p>
                 </div>
               </div>

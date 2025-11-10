@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
               <li>Objection to processing</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children's Privacy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children&apos;s Privacy</h2>
             <p className="text-gray-600 mb-6">
               Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.
             </p>
