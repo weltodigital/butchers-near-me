@@ -349,8 +349,8 @@ export default function CityPage() {
             <div className="prose max-w-none">
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                 {city} boasts {totalButchers} exceptional {totalButchers === 1 ? 'butcher' : 'butchers'} known for their
-                commitment to quality, traditional craftsmanship, and outstanding customer service. Whether you're looking
-                for premium steaks, specialty sausages, or expert advice on meat preparation, {city}'s local butchers
+                commitment to quality, traditional craftsmanship, and outstanding customer service. Whether you&apos;re looking
+                for premium steaks, specialty sausages, or expert advice on meat preparation, {city}&apos;s local butchers
                 deliver unmatched expertise and quality.
               </p>
 

@@ -173,7 +173,7 @@ export default function LocationsPage() {
           {/* SEO Content */}
           <section className="bg-white rounded-lg shadow-lg p-8 mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              UK's Finest Local Butchers
+              UK&apos;s Finest Local Butchers
             </h2>
             <div className="prose max-w-none">
               <p className="text-gray-600 mb-6 text-lg">

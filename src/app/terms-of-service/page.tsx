@@ -36,7 +36,7 @@ export default function TermsOfService() {
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-600 mb-6">
-              By accessing and using Butchers Near Me ("we," "our," or "us"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, you should not use our website.
+              By accessing and using Butchers Near Me (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these terms, you should not use our website.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Description of Service</h2>
@@ -92,7 +92,7 @@ export default function TermsOfService() {
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Disclaimers</h2>
             <p className="text-gray-600 mb-4">
-              The information on this website is provided on an "as is" basis. To the fullest extent permitted by law, we exclude:
+              The information on this website is provided on an &quot;as is&quot; basis. To the fullest extent permitted by law, we exclude:
             </p>
             <ul className="list-disc list-inside text-gray-600 mb-6 space-y-2">
               <li>All representations and warranties relating to this website and its contents</li>

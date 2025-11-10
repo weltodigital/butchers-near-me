@@ -352,7 +352,7 @@ export default function CountyPage() {
             <div className="prose max-w-none">
               <p className="text-gray-600 mb-4">
                 {county} is home to some of the finest traditional butchers in the UK, offering premium quality meats,
-                expert craftsmanship, and personalized service that you simply can't find in supermarkets.
+                expert craftsmanship, and personalized service that you simply can&apos;t find in supermarkets.
               </p>
               <div className="grid md:grid-cols-2 gap-8 mt-6">
                 <div>
