@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .eq('is_active', true)
       .not('city', 'is', null)
 
-    const uniqueCities = [...new Set(cities?.map(item => item.city) || [])]
+    const uniqueCities = Array.from(new Set(cities?.map(item => item.city) || []))
 
     // City pages (limit to top 100 cities to avoid sitemap being too large)
     const cityStats = cities?.reduce((acc, item) => {
