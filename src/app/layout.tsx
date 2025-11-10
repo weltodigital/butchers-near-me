@@ -1,13 +1,51 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://butchersnearme.co.uk'),
   title: 'Butchers Near Me - Find Quality Local Butchers in the UK',
-  description: 'Discover the best local butchers near you across the UK. Find quality meat, contact details, reviews, and directions to traditional butcher shops in your area.',
-  keywords: 'butchers, local butchers, meat shop, UK butchers, quality meat, butchers near me',
+  description: 'Discover 1000+ quality butchers across the UK. Find traditional meat shops, expert butchers, and premium cuts in your county and city. Compare ratings, contact details, and directions.',
+  keywords: 'butchers, local butchers, meat shop, UK butchers, quality meat, butchers near me, traditional butchers, county butchers, city butchers',
+  authors: [{ name: 'Butchers Near Me' }],
+  creator: 'Butchers Near Me',
+  publisher: 'Butchers Near Me',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: 'Butchers Near Me - Find Quality Local Butchers in the UK',
+    description: 'Discover 1000+ quality butchers across the UK. Find traditional meat shops, expert butchers, and premium cuts in your county and city.',
+    url: 'https://butchersnearme.co.uk',
+    siteName: 'Butchers Near Me',
+    type: 'website',
+    locale: 'en_GB',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Butchers Near Me - Find Quality Local Butchers in the UK',
+    description: 'Discover 1000+ quality butchers across the UK. Find traditional meat shops and premium cuts near you.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 }
 
 export default function RootLayout({
@@ -17,7 +55,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }

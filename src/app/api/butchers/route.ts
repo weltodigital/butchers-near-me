@@ -5,15 +5,26 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const limit = parseInt(searchParams.get('limit') || '12')
   const city = searchParams.get('city')
+  const featured = searchParams.get('featured') === 'true'
 
   try {
     let query = supabase
       .from('butchers')
-      .select('id, name, city, address, phone, website, rating, review_count')
+      .select('id, name, city, county, address, phone, website, rating, review_count, images')
       .eq('is_active', true)
 
     if (city) {
       query = query.eq('city', city)
+    }
+
+    if (featured) {
+      // Filter for featured butchers with good images, websites, and high ratings
+      query = query
+        .not('website', 'is', null)
+        .neq('website', '')
+        .not('images', 'is', null)
+        .gte('rating', 4.5)
+        .gte('review_count', 10)
     }
 
     const { data: butchers, error } = await query
