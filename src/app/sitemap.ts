@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .eq('is_active', true)
       .not('county', 'is', null)
 
-    const uniqueCounties = [...new Set(counties?.map(item => item.county) || [])]
+    const uniqueCounties = Array.from(new Set(counties?.map(item => item.county) || []))
 
     // County pages
     const countyPages: MetadataRoute.Sitemap = uniqueCounties.map((county) => ({
