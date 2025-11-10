@@ -21,7 +21,7 @@ export async function GET(
     }
 
     // Find the county that matches the slug
-    const uniqueCounties = [...new Set(allCounties.map(item => item.county))]
+    const uniqueCounties = Array.from(new Set(allCounties.map(item => item.county)))
     const county = uniqueCounties.find(c =>
       c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') === countySlug
     )
