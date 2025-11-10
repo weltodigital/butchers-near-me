@@ -104,7 +104,7 @@ export default function Home() {
                         loading="lazy"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none'
-                          e.currentTarget.parentElement.classList.add('hidden')
+                          e.currentTarget.parentElement?.classList.add('hidden')
                         }}
                       />
                       {butcher.rating && (
