@@ -229,7 +229,7 @@ export default function CountyPage() {
                         loading="lazy"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none'
-                          e.currentTarget.parentElement.classList.add('hidden')
+                          e.currentTarget.parentElement?.classList.add('hidden')
                         }}
                       />
                       {butcher.rating && (
