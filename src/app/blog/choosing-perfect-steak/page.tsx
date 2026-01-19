@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide | Butchers Near Me',
