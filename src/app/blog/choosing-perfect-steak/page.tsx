@@ -33,12 +33,9 @@ export default function ChoosingPerfectSteakPage() {
           {/* Article Header */}
           <header className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 text-sm text-gray-600 mb-6">
-              <span className="bg-red-100 text-red-700 px-3 py-2 rounded-full">Meat Selection</span>
               <span>January 15, 2024</span>
               <span>•</span>
               <span>5 min read</span>
-              <span>•</span>
-              <span>By Expert Butchers</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               How to Choose the Perfect Steak: A Butcher&apos;s Guide
@@ -50,10 +47,15 @@ export default function ChoosingPerfectSteakPage() {
             </p>
           </header>
 
-          {/* Featured Image Placeholder */}
+          {/* Featured Image */}
           <div className="mb-12">
-            <div className="w-full h-64 md:h-96 bg-slate-200 rounded-lg flex items-center justify-center text-gray-500">
-              [Premium Steak Selection Image - Various cuts displayed on butcher block]
+            <div className="w-full h-64 md:h-96 relative rounded-lg overflow-hidden">
+              <Image
+                src="/how-to-choose-the-perfect-steak.png"
+                alt="How to Choose the Perfect Steak: A Butcher's Guide"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -261,7 +263,6 @@ export default function ChoosingPerfectSteakPage() {
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="text-sm text-gray-600">
                 <p>Published on January 15, 2024</p>
-                <p>Category: <Link href="/blog" className="text-red-600 hover:underline">Meat Selection</Link></p>
               </div>
               <div className="flex gap-4">
                 <Link
