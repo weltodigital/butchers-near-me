@@ -3,16 +3,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide | Butchers Near Me',
+  title: 'How to Choose the Perfect Steak | Butchers Near Me',
   description: 'Learn from professional butchers how to select the best cuts for your perfect steak, including marbling, aging, and preparation tips. Expert advice on ribeye, sirloin, and fillet cuts.',
   keywords: 'how to choose steak, best steak cuts, marbling steak, aged beef, ribeye vs sirloin, butcher advice steak, steak quality guide, meat selection tips, dry aged steak, steak preparation',
   openGraph: {
-    title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
+    title: 'How to Choose the Perfect Steak',
     description: 'Professional butcher tips on selecting the best steak cuts, understanding marbling, and choosing quality beef.',
     url: 'https://www.butchersnearme.co.uk/blog/choosing-perfect-steak',
   },
   twitter: {
-    title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
+    title: 'How to Choose the Perfect Steak',
     description: 'Expert butcher advice on selecting the perfect steak cut for any occasion.',
   },
 }
@@ -39,7 +39,7 @@ export default function ChoosingPerfectSteakPage() {
               <span>5 min read</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              How to Choose the Perfect Steak: A Butcher&apos;s Guide
+              How to Choose the Perfect Steak
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover the secrets professional butchers use to select the finest steaks.

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const blogPosts = [
   {
     id: 'choosing-perfect-steak',
-    title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
+    title: 'How to Choose the Perfect Steak',
     excerpt: 'Learn from professional butchers how to select the best cuts for your perfect steak, including marbling, aging, and preparation tips.',
     image: '/how-to-choose-the-perfect-steak.png',
     date: '2026-01-10',
