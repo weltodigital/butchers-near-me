@@ -137,13 +137,19 @@ export default function LocationsClient() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {counties.slice(0, 8).map((county) => (
-                <div key={county.slug} className="text-center bg-white rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Quality Standards</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    All butchers in our directory are carefully selected for their commitment to quality,
-                    freshness, and customer service. We only list established businesses with proven track records.
+                <Link
+                  key={county.slug}
+                  href={`/${county.slug}`}
+                  className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 hover:border-red-200 border border-transparent group"
+                >
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                    {county.county}
+                  </h3>
+                  <p className="text-3xl font-bold text-red-600 mb-2">{county.count}</p>
+                  <p className="text-gray-600 text-sm">
+                    {county.count === 1 ? 'Butcher' : 'Butchers'} available
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
@@ -184,10 +190,10 @@ export default function LocationsClient() {
           {/* Find Your Local Area */}
           <section className="mt-12 text-center">
             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-8 text-white">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-xl font-semibold text-white mb-4">
                 Can&apos;t Find Your Area?
               </h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              <p className="text-red-100 mb-6 max-w-2xl mx-auto">
                 If you can&apos;t find your local area or know of a quality butcher that should be listed,
                 we&apos;d love to hear from you. Help us build the most comprehensive butcher directory in the UK.
               </p>
