@@ -192,18 +192,18 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
   // Get default center coordinates
   const defaultCenter = mapCenter
 
-  // Geocode city center if not in hardcoded coordinates
+  // Always try to geocode city center for accurate positioning
   useEffect(() => {
     const geocodeCityIfNeeded = async () => {
-      const normalizedCity = city.toLowerCase().replace(/[^a-z]/g, '')
       const hardcodedCoords = getCityCoordinates(city)
 
-      // If we're using the UK center fallback, try to geocode the actual city
-      if (hardcodedCoords[0] === 52.3555 && hardcodedCoords[1] === -1.1743) {
-        const cityCenter = await geocodeCityCenter(city)
-        if (cityCenter) {
-          setMapCenter(cityCenter)
-        }
+      // Always try to geocode for better accuracy, but prioritize hardcoded if available
+      const cityCenter = await geocodeCityCenter(city)
+      if (cityCenter) {
+        setMapCenter(cityCenter)
+      } else if (hardcodedCoords[0] === 52.3555 && hardcodedCoords[1] === -1.1743) {
+        // Only use UK center as absolute last resort
+        console.warn(`Could not geocode ${city}, using UK center fallback`)
       }
     }
 
@@ -223,7 +223,7 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
       const newCoords: Record<string, [number, number]> = {}
       const cityCenter = mapCenter
 
-      for (const butcher of needGeocoding.slice(0, 8)) { // Increased to 8 for better coverage
+      for (const butcher of needGeocoding.slice(0, 15)) { // Increased to 15 for better coverage
         try {
           const coords = await geocodeAddress(butcher.address, city)
           if (coords) {
@@ -237,7 +237,7 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
             ]
           }
           // Small delay to be respectful to the geocoding service
-          await new Promise(resolve => setTimeout(resolve, 300))
+          await new Promise(resolve => setTimeout(resolve, 200))
         } catch (error) {
           console.error(`Failed to geocode ${butcher.name}:`, error)
           // Fallback: use city center with random offset
