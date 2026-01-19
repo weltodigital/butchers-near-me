@@ -69,6 +69,22 @@ const geocodeAddress = async (address: string, city: string): Promise<[number, n
   return null
 }
 
+// Dynamic geocoding for city center coordinates
+const geocodeCityCenter = async (city: string): Promise<[number, number] | null> => {
+  try {
+    const query = encodeURIComponent(`${city}, UK`)
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}&limit=1`)
+    const data = await response.json()
+
+    if (data && data.length > 0) {
+      return [parseFloat(data[0].lat), parseFloat(data[0].lon)]
+    }
+  } catch (error) {
+    console.error(`Failed to geocode city center for ${city}:`, error)
+  }
+  return null
+}
+
 // Default coordinates for UK cities and counties (fallback)
 const getCityCoordinates = (city: string): [number, number] => {
   const coords: Record<string, [number, number]> = {
@@ -93,6 +109,13 @@ const getCityCoordinates = (city: string): [number, number] => {
     brighton: [50.8225, -0.1372],
     exeter: [50.7236, -3.5269],
     winchester: [51.0632, -1.3080],
+    fareham: [50.8507, -1.1822],
+    andover: [51.2119, -1.4959],
+    southsea: [50.7912, -1.0863],
+    ringwood: [50.8486, -1.7854],
+    fordingbridge: [50.9287, -1.7856],
+    lymington: [50.7594, -1.5444],
+    romsey: [50.9893, -1.4956],
 
     // Counties
     bedfordshire: [52.1360, -0.4667],
@@ -163,10 +186,29 @@ const getCityCoordinates = (city: string): [number, number] => {
 export default function ButchersMap({ butchers, city, county, center, zoom = 13 }: ButchersMapProps) {
   const mapRef = useRef<any>(null)
   const [geocodedCoords, setGeocodedCoords] = useState<Record<string, [number, number]>>({})
+  const [mapCenter, setMapCenter] = useState<[number, number]>(center || getCityCoordinates(city))
   const [isGeocoding, setIsGeocoding] = useState(false)
 
   // Get default center coordinates
-  const defaultCenter = center || getCityCoordinates(city)
+  const defaultCenter = mapCenter
+
+  // Geocode city center if not in hardcoded coordinates
+  useEffect(() => {
+    const geocodeCityIfNeeded = async () => {
+      const normalizedCity = city.toLowerCase().replace(/[^a-z]/g, '')
+      const hardcodedCoords = getCityCoordinates(city)
+
+      // If we're using the UK center fallback, try to geocode the actual city
+      if (hardcodedCoords[0] === 52.3555 && hardcodedCoords[1] === -1.1743) {
+        const cityCenter = await geocodeCityCenter(city)
+        if (cityCenter) {
+          setMapCenter(cityCenter)
+        }
+      }
+    }
+
+    geocodeCityIfNeeded()
+  }, [city])
 
   // Geocode addresses for butchers without coordinates
   useEffect(() => {
@@ -179,7 +221,7 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
 
       setIsGeocoding(true)
       const newCoords: Record<string, [number, number]> = {}
-      const cityCenter = getCityCoordinates(city)
+      const cityCenter = mapCenter
 
       for (const butcher of needGeocoding.slice(0, 8)) { // Increased to 8 for better coverage
         try {
@@ -212,7 +254,7 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
     }
 
     geocodeButchers()
-  }, [butchers, city, geocodedCoords])
+  }, [butchers, city, geocodedCoords, mapCenter])
 
   // Get all mappable butchers (with coordinates or geocoded)
   const mappableButchers = butchers.filter(butcher => {
