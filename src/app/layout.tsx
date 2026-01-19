@@ -7,13 +7,18 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://butchersnearme.co.uk'),
+  metadataBase: new URL('https://www.butchersnearme.co.uk'),
   title: 'Butchers Near Me - Find Quality Local Butchers in the UK',
   description: 'Discover 1000+ quality butchers across the UK. Find traditional meat shops, expert butchers, and premium cuts in your county and city. Compare ratings, contact details, and directions.',
   keywords: 'butchers, local butchers, meat shop, UK butchers, quality meat, butchers near me, traditional butchers, county butchers, city butchers',
   authors: [{ name: 'Butchers Near Me' }],
   creator: 'Butchers Near Me',
   publisher: 'Butchers Near Me',
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -22,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Butchers Near Me - Find Quality Local Butchers in the UK',
     description: 'Discover 1000+ quality butchers across the UK. Find traditional meat shops, expert butchers, and premium cuts in your county and city.',
-    url: 'https://butchersnearme.co.uk',
+    url: 'https://www.butchersnearme.co.uk',
     siteName: 'Butchers Near Me',
     type: 'website',
     locale: 'en_GB',

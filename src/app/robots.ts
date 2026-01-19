@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/admin/'],
+      disallow: ['/api/', '/admin/', '/test'],
     },
-    sitemap: 'https://butchersnearme.co.uk/sitemap.xml',
+    sitemap: 'https://www.butchersnearme.co.uk/sitemap.xml',
   }
 }
