@@ -358,6 +358,57 @@ export default function CityClient({ citySlug, countySlug }: CityClientProps) {
             </div>
           </section>
 
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <div className="card p-8">
+              <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+                Frequently Asked Questions About Butchers in {city}
+              </h2>
+              <div className="max-w-4xl mx-auto space-y-6">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    Where can I find the best butchers in {city}?
+                  </h3>
+                  <p className="text-gray-600">
+                    The best butchers in {city} can be found in our directory above. We feature independent butchers, traditional butcher shops, and premium meat suppliers in {city}, {county} with detailed information including ratings, reviews, and contact details.
+                  </p>
+                </div>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    What should I look for in a quality butcher shop in {city}?
+                  </h3>
+                  <p className="text-gray-600">
+                    When choosing a butcher shop in {city}, look for fresh, high-quality meat displays, knowledgeable staff, proper hygiene standards, and good customer reviews. The best butchers in {city} offer locally sourced meat, custom cuts, and expert advice on cooking and preparation.
+                  </p>
+                </div>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    Are there independent butchers near me in {city}?
+                  </h3>
+                  <p className="text-gray-600">
+                    Yes, {city} is home to several independent butchers who specialize in traditional butchery techniques, locally sourced meat, and personalized customer service. These family-run butcher shops in {city} often work directly with local farms and offer specialty cuts not available in supermarkets.
+                  </p>
+                </div>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    What services do butchers in {city} typically provide?
+                  </h3>
+                  <p className="text-gray-600">
+                    Butchers in {city} typically offer custom cutting services, special orders, meat preparation advice, sausage making, and game processing. Many also provide catering services, vacuum packing, and can recommend the best cuts for specific recipes or cooking methods.
+                  </p>
+                </div>
+                <div className="pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    Why choose a local butcher in {city} over a supermarket?
+                  </h3>
+                  <p className="text-gray-600">
+                    Choosing a local butcher in {city} means you get expert knowledge, higher quality meat, custom cuts, and support for local businesses. Independent butchers in {city} often source from local farms, ensuring fresher meat and more ethical, sustainable practices than large supermarket chains.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Call to Action */}
           <section className="text-center">
             <div className="card p-12">

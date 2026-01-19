@@ -13,6 +13,61 @@ function slugToCountyName(slug: string): string {
     .join(' ')
 }
 
+// Generate comprehensive SEO keywords for county pages
+function generateCountyKeywords(county: string): string {
+  const location = county.toLowerCase()
+  const keywords = [
+    // Core butcher keywords
+    `butchers in ${location}`,
+    `butcher shops in ${location}`,
+    `butcher shop ${location}`,
+    `local butchers ${location}`,
+    `local butcher ${location}`,
+    `butcher near me ${location}`,
+    `butchers near me ${location}`,
+    `best butchers in ${location}`,
+    `best butcher in ${location}`,
+    `top rated butchers ${location}`,
+    `trusted butchers ${location}`,
+    `recommended butcher ${location}`,
+    `popular butchers in ${location}`,
+    `highly rated butcher ${location}`,
+    `independent butchers ${location}`,
+    `independent butcher ${location}`,
+    `family run butcher ${location}`,
+    `traditional butcher ${location}`,
+    `artisan butcher ${location}`,
+    `local independent butcher ${location}`,
+    `quality butcher ${location}`,
+    `premium butcher ${location}`,
+    `fresh meat butcher ${location}`,
+    `ethical butcher ${location}`,
+    `sustainable butcher ${location}`,
+    `locally sourced meat ${location}`,
+    // Question-based keywords
+    `where to buy quality meat in ${location}`,
+    `best place to buy meat in ${location}`,
+    `recommended meat shops in ${location}`,
+    `where to find a good butcher in ${location}`,
+    `what is the best butcher in ${location}`,
+    `are there any good butchers in ${location}`,
+    `best local butcher near me in ${location}`,
+    `which butcher has the best meat in ${location}`,
+    `how to choose a good butcher in ${location}`,
+    `is there an independent butcher near me in ${location}`,
+    // Descriptive keywords
+    `affordable butcher ${location}`,
+    `cheap butcher ${location}`,
+    `high quality butcher ${location}`,
+    `specialist butcher ${location}`,
+    `award winning butcher ${location}`,
+    `${location} butcher directory`,
+    `${location} meat shops`,
+    `quality meat ${location}`
+  ]
+  return keywords.join(', ')
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { county: countySlug } = await params
   const countyName = slugToCountyName(countySlug)
@@ -28,7 +83,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       return {
         title: `Best Butchers in ${county} - Find Quality Local Meat Shops | Butchers Near Me`,
         description: `Discover ${totalButchers} quality butchers in ${county}. Find traditional meat shops, expert butchers, and premium cuts with ratings, reviews, and contact details.`,
-        keywords: `butchers ${county.toLowerCase()}, ${county.toLowerCase()} meat shops, local butchers ${county.toLowerCase()}, traditional butchers ${county.toLowerCase()}, quality meat ${county.toLowerCase()}, ${county.toLowerCase()} butcher directory`,
+        keywords: generateCountyKeywords(county),
         openGraph: {
           title: `Best Butchers in ${county} - Quality Local Meat Shops`,
           description: `Find ${totalButchers} quality butchers in ${county}. Traditional meat shops, expert service, and premium cuts near you.`,
@@ -46,9 +101,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   // Fallback metadata
   return {
-    title: `Butchers in ${countyName} - Find Local Meat Shops | Butchers Near Me`,
-    description: `Find quality butchers in ${countyName}. Discover traditional meat shops, expert butchers, and premium cuts in your local area with reviews and contact details.`,
-    keywords: `butchers ${countyName.toLowerCase()}, ${countyName.toLowerCase()} meat shops, local butchers ${countyName.toLowerCase()}, traditional butchers`,
+    title: `Best Butchers in ${countyName} - Find Quality Local Meat Shops | Butchers Near Me`,
+    description: `Discover quality butchers in ${countyName}. Find traditional meat shops, independent butchers, and premium cuts with expert service and locally sourced meat.`,
+    keywords: generateCountyKeywords(countyName),
   }
 }
 

@@ -383,6 +383,57 @@ export default function CountyClient({ countySlug }: CountyClientProps) {
             </div>
           </section>
 
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <div className="card p-8">
+              <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+                Frequently Asked Questions About Butchers in {county}
+              </h2>
+              <div className="max-w-4xl mx-auto space-y-6">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    Where can I find the best butchers in {county}?
+                  </h3>
+                  <p className="text-gray-600">
+                    You can find the best butchers in {county} through our comprehensive directory above. We list independent butchers, traditional butcher shops, and premium meat suppliers with ratings, reviews, and contact details to help you choose quality local butchers in {county}.
+                  </p>
+                </div>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    What makes a good butcher in {county}?
+                  </h3>
+                  <p className="text-gray-600">
+                    A good butcher in {county} typically offers high-quality, locally sourced meat, expert cutting services, knowledgeable staff, and excellent customer service. Look for independent butchers who work with local farms, offer specialty cuts, and maintain high hygiene standards.
+                  </p>
+                </div>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    Are there independent butchers near me in {county}?
+                  </h3>
+                  <p className="text-gray-600">
+                    Yes, {county} has many independent butchers who pride themselves on traditional butchery skills, locally sourced meat, and personal customer service. Our directory features family-run butcher shops and artisan butchers throughout {county}.
+                  </p>
+                </div>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    How do I choose the best butcher shop in {county}?
+                  </h3>
+                  <p className="text-gray-600">
+                    To choose the best butcher shop in {county}, look for shops with good reviews, fresh meat displays, knowledgeable staff, and proper food safety standards. Consider factors like meat quality, variety of cuts, local sourcing, and customer service when selecting a butcher in {county}.
+                  </p>
+                </div>
+                <div className="pb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    What services do butchers in {county} typically offer?
+                  </h3>
+                  <p className="text-gray-600">
+                    Butchers in {county} typically offer custom cutting, specialty meats, sausage making, game preparation, and meat advice. Many also provide services like special orders for events, vacuum packing, and recommendations for cooking different cuts of meat.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Call to Action */}
           <section className="text-center">
             <div className="card p-12">
