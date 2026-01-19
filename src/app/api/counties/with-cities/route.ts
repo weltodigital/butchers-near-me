@@ -1,5 +1,18 @@
 import { supabase } from '@/lib/supabase'
 
+interface City {
+  city: string
+  slug: string
+  count: number
+}
+
+interface County {
+  county: string
+  slug: string
+  count: number
+  cities: Map<string, City>
+}
+
 export async function GET() {
   try {
     // Get all butchers to extract counties and cities
@@ -16,7 +29,7 @@ export async function GET() {
     }
 
     // Group butchers by county and city
-    const countiesMap = new Map()
+    const countiesMap = new Map<string, County>()
 
     butchers.forEach(butcher => {
       const county = butcher.county
@@ -27,11 +40,11 @@ export async function GET() {
           county,
           slug: county.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, ''),
           count: 0,
-          cities: new Map()
+          cities: new Map<string, City>()
         })
       }
 
-      const countyData = countiesMap.get(county)
+      const countyData = countiesMap.get(county)!
       countyData.count++
 
       if (!countyData.cities.has(city)) {
@@ -42,7 +55,7 @@ export async function GET() {
         })
       }
 
-      countyData.cities.get(city).count++
+      countyData.cities.get(city)!.count++
     })
 
     // Convert to array format and sort
