@@ -66,19 +66,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .not('city', 'is', null)
       .not('county', 'is', null)
 
-    // Count butchers per city and limit to top 100
+    // Count butchers per city (include ALL cities)
     const cityStats = cityCountyData?.reduce((acc, item) => {
       const key = `${item.city}|${item.county}`
       acc[key] = (acc[key] || 0) + 1
       return acc
     }, {} as Record<string, number>) || {}
 
-    const topCityEntries = Object.entries(cityStats)
+    const allCityEntries = Object.entries(cityStats)
       .sort(([,a], [,b]) => b - a)
-      .slice(0, 100)
 
-    // City pages
-    const cityPages: MetadataRoute.Sitemap = topCityEntries.map(([cityCountyKey]) => {
+    // City pages (include ALL cities)
+    const cityPages: MetadataRoute.Sitemap = allCityEntries.map(([cityCountyKey]) => {
       const [city, county] = cityCountyKey.split('|')
       const countySlug = createSlug(county)
       const citySlug = createSlug(city)
