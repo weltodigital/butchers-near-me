@@ -34,7 +34,7 @@ export default function ChoosingPerfectSteakPage() {
           {/* Article Header */}
           <header className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 text-sm text-gray-600 mb-6">
-              <span>January 15, 2024</span>
+              <span>Last updated January 10, 2026</span>
               <span>•</span>
               <span>5 min read</span>
             </div>
@@ -263,7 +263,7 @@ export default function ChoosingPerfectSteakPage() {
           <footer className="mt-12 pt-8 border-t border-gray-200">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="text-sm text-gray-600">
-                <p>Published on January 15, 2024</p>
+                <p>Last updated January 10, 2026</p>
               </div>
               <div className="flex gap-4">
                 <Link

@@ -24,7 +24,7 @@ const blogPosts = [
     title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
     excerpt: 'Learn from professional butchers how to select the best cuts for your perfect steak, including marbling, aging, and preparation tips.',
     image: '/how-to-choose-the-perfect-steak.png',
-    date: '2024-01-15',
+    date: '2026-01-10',
     readTime: '5 min read'
   }
 ]
@@ -73,7 +73,7 @@ export default function BlogPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="text-sm text-gray-500">
-                    {new Date(blogPosts[0].date).toLocaleDateString('en-GB', {
+                    Last updated {new Date(blogPosts[0].date).toLocaleDateString('en-GB', {
                       day: 'numeric',
                       month: 'long',
                       year: 'numeric'
