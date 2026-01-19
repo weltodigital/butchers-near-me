@@ -2,16 +2,16 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'How to Choose the Perfect Steak: A Butcher\'s Guide | Butchers Near Me',
+  title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide | Butchers Near Me',
   description: 'Learn from professional butchers how to select the best cuts for your perfect steak, including marbling, aging, and preparation tips. Expert advice on ribeye, sirloin, and fillet cuts.',
   keywords: 'how to choose steak, best steak cuts, marbling steak, aged beef, ribeye vs sirloin, butcher advice steak, steak quality guide, meat selection tips, dry aged steak, steak preparation',
   openGraph: {
-    title: 'How to Choose the Perfect Steak: A Butcher\'s Guide',
+    title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
     description: 'Professional butcher tips on selecting the best steak cuts, understanding marbling, and choosing quality beef.',
     url: 'https://www.butchersnearme.co.uk/blog/choosing-perfect-steak',
   },
   twitter: {
-    title: 'How to Choose the Perfect Steak: A Butcher\'s Guide',
+    title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
     description: 'Expert butcher advice on selecting the perfect steak cut for any occasion.',
   },
 }
@@ -41,7 +41,7 @@ export default function ChoosingPerfectSteakPage() {
               <span>By Expert Butchers</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              How to Choose the Perfect Steak: A Butcher's Guide
+              How to Choose the Perfect Steak: A Butcher&apos;s Guide
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover the secrets professional butchers use to select the finest steaks.
@@ -62,13 +62,13 @@ export default function ChoosingPerfectSteakPage() {
             <div className="card p-8 mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Understanding Steak Quality</h2>
               <p className="text-gray-700 mb-4">
-                Choosing the perfect steak isn't just about picking the most expensive cut.
+                Choosing the perfect steak isn&apos;t just about picking the most expensive cut.
                 As professional butchers, we look for specific indicators that tell us about
-                the meat's quality, flavor potential, and cooking characteristics.
+                the meat&apos;s quality, flavor potential, and cooking characteristics.
               </p>
               <p className="text-gray-700">
                 The key factors that determine steak quality include marbling, color, texture,
-                aging process, and the animal's diet and lifestyle. Understanding these elements
+                aging process, and the animal&apos;s diet and lifestyle. Understanding these elements
                 will help you select steaks that deliver exceptional flavor and tenderness every time.
               </p>
             </div>
@@ -82,7 +82,7 @@ export default function ChoosingPerfectSteakPage() {
               </p>
 
               <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
-                <h3 className="font-semibold text-red-800 mb-2">Butcher's Tip</h3>
+                <h3 className="font-semibold text-red-800 mb-2">Butcher&apos;s Tip</h3>
                 <p className="text-red-700">
                   Look for fine, evenly distributed marbling rather than large chunks of fat.
                   The marbling should look like delicate lace work throughout the muscle,
@@ -120,7 +120,7 @@ export default function ChoosingPerfectSteakPage() {
                   </p>
                   <p className="text-gray-700">
                     Leaner than ribeye but still tender, with excellent beefy flavor.
-                    Great value cut that's versatile for many cooking methods.
+                    Great value cut that&apos;s versatile for many cooking methods.
                   </p>
                 </div>
 
@@ -163,7 +163,7 @@ export default function ChoosingPerfectSteakPage() {
               </ul>
               <p className="text-gray-700">
                 While dry-aged steaks command higher prices, the investment pays off in exceptional
-                flavor and dining experience that's impossible to achieve with fresh cuts.
+                flavor and dining experience that&apos;s impossible to achieve with fresh cuts.
               </p>
             </div>
 
@@ -221,7 +221,7 @@ export default function ChoosingPerfectSteakPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">During Cooking</h3>
                   <ul className="list-disc list-inside space-y-2 text-gray-700">
                     <li>Use high heat for initial searing</li>
-                    <li>Don't move the steak until ready to flip</li>
+                    <li>Don&apos;t move the steak until ready to flip</li>
                     <li>Use a meat thermometer for accuracy</li>
                     <li>Let rest 5-10 minutes after cooking</li>
                   </ul>

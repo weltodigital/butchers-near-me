@@ -4,16 +4,16 @@ import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Butcher Blog - Expert Tips, Recipes & Meat Advice | Butchers Near Me',
-  description: 'Discover expert butcher tips, meat preparation guides, recipes, and industry insights from UK\'s finest butchers. Learn about quality cuts, cooking techniques, and local meat sourcing.',
+  description: 'Discover expert butcher tips, meat preparation guides, recipes, and industry insights from UK&apos;s finest butchers. Learn about quality cuts, cooking techniques, and local meat sourcing.',
   keywords: 'butcher blog, meat tips, butcher advice, meat recipes, cooking guides, butcher techniques, quality meat, local butchers, meat preparation, butcher insights',
   openGraph: {
     title: 'Butcher Blog - Expert Tips & Recipes from UK Butchers',
-    description: 'Expert butcher tips, meat preparation guides, and recipes from UK\'s finest independent butchers.',
+    description: 'Expert butcher tips, meat preparation guides, and recipes from UK&apos;s finest independent butchers.',
     url: 'https://www.butchersnearme.co.uk/blog',
   },
   twitter: {
     title: 'Butcher Blog - Expert Tips & Recipes',
-    description: 'Expert butcher tips, meat guides, and recipes from UK\'s finest butchers.',
+    description: 'Expert butcher tips, meat guides, and recipes from UK&apos;s finest butchers.',
   },
 }
 
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const blogPosts = [
   {
     id: 'choosing-perfect-steak',
-    title: 'How to Choose the Perfect Steak: A Butcher\'s Guide',
+    title: 'How to Choose the Perfect Steak: A Butcher&apos;s Guide',
     excerpt: 'Learn from professional butchers how to select the best cuts for your perfect steak, including marbling, aging, and preparation tips.',
     image: '/blog/steak-selection.jpg',
     date: '2024-01-15',
@@ -99,10 +99,10 @@ export default function BlogPage() {
         <header className="text-center mb-16">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              The Butcher's Blog
+              The Butcher&apos;s Blog
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Expert tips, recipes, and insights from UK's finest independent butchers.
+              Expert tips, recipes, and insights from UK&apos;s finest independent butchers.
               Discover the art of quality meat selection, preparation techniques, and the stories behind your local butcher shops.
             </p>
           </div>
