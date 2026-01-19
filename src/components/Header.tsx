@@ -25,12 +25,6 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             <Link
-              href="/"
-              className="text-gray-700 hover:text-red-600 font-medium transition-colors"
-            >
-              Home
-            </Link>
-            <Link
               href="/gloucestershire"
               className="text-gray-700 hover:text-red-600 font-medium transition-colors"
             >
@@ -81,13 +75,6 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-200 mt-2">
             <nav className="flex flex-col space-y-4 pt-4">
-              <Link
-                href="/"
-                className="text-gray-700 hover:text-red-600 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
               <Link
                 href="/gloucestershire"
                 className="text-gray-700 hover:text-red-600 font-medium transition-colors"

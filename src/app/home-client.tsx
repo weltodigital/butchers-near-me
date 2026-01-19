@@ -17,33 +17,55 @@ interface Butcher {
   images: string[]
 }
 
+interface City {
+  slug: string
+  city: string
+  count: number
+}
+
 interface County {
   slug: string
   county: string
   count: number
+  cities: City[]
 }
 
 export default function HomeClient() {
   const [butchers, setButchers] = useState<Butcher[]>([])
   const [totalButchers, setTotalButchers] = useState(0)
   const [counties, setCounties] = useState<County[]>([])
-  const [loading, setLoading] = useState(true)
+  const [countiesWithCities, setCountiesWithCities] = useState<County[]>([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [butchersResponse, countResponse, countiesResponse] = await Promise.all([
+        const [butchersResponse, countResponse, countiesResponse, countiesWithCitiesResponse] = await Promise.all([
           fetch('/api/butchers?limit=12&featured=true'),
           fetch('/api/butchers/count'),
-          fetch('/api/counties')
+          fetch('/api/counties'),
+          fetch('/api/counties/with-cities')
         ])
 
         const butchersData = await butchersResponse.json()
         const countData = await countResponse.json()
         const countiesData = await countiesResponse.json()
+        const countiesWithCitiesData = await countiesWithCitiesResponse.json()
 
         if (butchersData.butchers) {
-          setButchers(butchersData.butchers)
+          // Filter butchers to only include those with complete info including images
+          const completeButchers = butchersData.butchers.filter((butcher: Butcher) =>
+            butcher.name &&
+            butcher.city &&
+            butcher.county &&
+            butcher.address &&
+            butcher.images &&
+            butcher.images.length > 0 &&
+            butcher.rating &&
+            butcher.phone
+          ).slice(0, 12) // Ensure we show exactly 12 butchers
+
+          setButchers(completeButchers)
         }
 
         if (countData.count) {
@@ -52,6 +74,10 @@ export default function HomeClient() {
 
         if (countiesData.counties) {
           setCounties(countiesData.counties)
+        }
+
+        if (countiesWithCitiesData.counties) {
+          setCountiesWithCities(countiesWithCitiesData.counties)
         }
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -85,17 +111,24 @@ export default function HomeClient() {
           </div>
         </header>
 
+        {/* Key Features Section */}
+        <section className="text-center mb-16">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xl text-gray-700 mb-6 leading-relaxed">
+              We focus on independent, high-quality butcher shops, helping you find better meat and support local businesses. 1,200+ UK butchers listed
+            </p>
+            <p className="text-lg text-gray-600 font-medium">
+              Covering England, Scotland, Wales & Northern Ireland
+            </p>
+          </div>
+        </section>
+
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
             Featured Butchers
           </h2>
 
-          {loading ? (
-            <div className="text-center py-16">
-              <div className="animate-spin rounded-full h-16 w-16 border-4 border-red-600 border-t-transparent mx-auto mb-4"></div>
-              <p className="text-slate-600 text-lg">Loading featured butchers...</p>
-            </div>
-          ) : butchers && butchers.length > 0 ? (
+          {butchers && butchers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {butchers.map((butcher) => (
                 <article key={butcher.id} className="card hover-lift overflow-hidden">
@@ -198,73 +231,60 @@ export default function HomeClient() {
           )}
         </section>
 
-        <section className="text-center mb-16">
-          <div className="card p-12">
-            <h2 className="card-title text-4xl mb-6">
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Find Butchers by Location
             </h2>
-            <p className="card-description text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Browse by county and city to find the perfect local butcher near you
             </p>
-            <div className="flex justify-center gap-6 flex-wrap">
-              <Link href="/locations" className="btn btn-primary text-lg px-8 py-4">
-                Browse All Counties
-              </Link>
-              <Link href="/gloucestershire" className="btn btn-outline text-lg px-8 py-4">
-                Gloucestershire
-              </Link>
-              <Link href="/devon" className="btn btn-outline text-lg px-8 py-4">
-                Devon
-              </Link>
-            </div>
           </div>
-        </section>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Find Butchers by County
-          </h2>
-          {counties.length > 0 && (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              {counties.map((county) => (
-                <Link
-                  key={county.slug}
-                  href={`/${county.slug}`}
-                  className="card hover-lift p-4 text-center group"
-                >
-                  <h3 className="font-semibold text-slate-900 group-hover:text-red-600 mb-2 text-sm">
-                    {county.county}
-                  </h3>
-                  <p className="text-xs text-slate-600">
-                    {county.count} butcher{county.count !== 1 ? 's' : ''}
-                  </p>
-                </Link>
+          {countiesWithCities.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {countiesWithCities.map((county) => (
+                <div key={county.slug} className="card p-6">
+                  <Link
+                    href={`/${county.slug}`}
+                    className="block mb-4 hover:text-red-600 transition-colors"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {county.county}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {county.count} butcher{county.count !== 1 ? 's' : ''}
+                    </p>
+                  </Link>
+
+                  {county.cities && county.cities.length > 0 && (
+                    <div className="border-t border-gray-200 pt-4">
+                      <h4 className="text-sm font-semibold text-gray-700 mb-3">Cities & Towns:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {county.cities.slice(0, 8).map((city) => (
+                          <Link
+                            key={city.slug}
+                            href={`/${county.slug}/${city.slug}`}
+                            className="text-xs bg-gray-100 hover:bg-red-100 hover:text-red-700 text-gray-700 px-2 py-1 rounded transition-colors"
+                          >
+                            {city.city} ({city.count})
+                          </Link>
+                        ))}
+                        {county.cities.length > 8 && (
+                          <Link
+                            href={`/${county.slug}`}
+                            className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded hover:bg-red-200 transition-colors"
+                          >
+                            +{county.cities.length - 8} more
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           )}
-
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-center text-gray-900 mb-6">
-              Top Counties for Butchers
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {counties.slice(0, 4).map((county) => (
-                <Link
-                  key={county.slug}
-                  href={`/${county.slug}`}
-                  className="card hover-lift p-8 text-center group border-2 border-transparent hover:border-red-200"
-                >
-                  <div className="text-4xl font-bold text-red-600 mb-4">{county.count}</div>
-                  <h3 className="font-bold text-slate-900 group-hover:text-red-600 mb-3 text-lg">
-                    {county.county}
-                  </h3>
-                  <p className="text-sm text-slate-600">
-                    Quality butchers across the region
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
         </section>
       </div>
     </div>
