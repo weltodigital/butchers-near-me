@@ -41,19 +41,31 @@ interface ButchersMapProps {
   zoom?: number
 }
 
-// Function to geocode addresses (simplified)
+// Function to geocode addresses with multiple fallback strategies
 const geocodeAddress = async (address: string, city: string): Promise<[number, number] | null> => {
-  try {
-    const query = encodeURIComponent(`${address}, ${city}, UK`)
-    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}&limit=1`)
-    const data = await response.json()
+  const queries = [
+    `${address}, ${city}, UK`,
+    `${address}, ${city}`,
+    `${city}, UK`,
+  ]
 
-    if (data && data.length > 0) {
-      return [parseFloat(data[0].lat), parseFloat(data[0].lon)]
+  for (const query of queries) {
+    try {
+      const encodedQuery = encodeURIComponent(query)
+      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodedQuery}&limit=1`)
+      const data = await response.json()
+
+      if (data && data.length > 0) {
+        return [parseFloat(data[0].lat), parseFloat(data[0].lon)]
+      }
+    } catch (error) {
+      console.error(`Geocoding error for "${query}":`, error)
     }
-  } catch (error) {
-    console.error('Geocoding error:', error)
+
+    // Small delay between requests
+    await new Promise(resolve => setTimeout(resolve, 100))
   }
+
   return null
 }
 
@@ -151,13 +163,60 @@ const getCityCoordinates = (city: string): [number, number] => {
 export default function ButchersMap({ butchers, city, county, center, zoom = 13 }: ButchersMapProps) {
   const mapRef = useRef<any>(null)
   const [geocodedCoords, setGeocodedCoords] = useState<Record<string, [number, number]>>({})
+  const [isGeocoding, setIsGeocoding] = useState(false)
 
   // Get default center coordinates
   const defaultCenter = center || getCityCoordinates(city)
 
-  // Only show butchers that already have coordinates for now
+  // Geocode addresses for butchers without coordinates
+  useEffect(() => {
+    const geocodeButchers = async () => {
+      const needGeocoding = butchers.filter(butcher =>
+        !butcher.latitude && !butcher.longitude && !geocodedCoords[butcher.id]
+      )
+
+      if (needGeocoding.length === 0) return
+
+      setIsGeocoding(true)
+      const newCoords: Record<string, [number, number]> = {}
+      const cityCenter = getCityCoordinates(city)
+
+      for (const butcher of needGeocoding.slice(0, 8)) { // Increased to 8 for better coverage
+        try {
+          const coords = await geocodeAddress(butcher.address, city)
+          if (coords) {
+            newCoords[butcher.id] = coords
+          } else {
+            // Fallback: use city center with small random offset for each butcher
+            const offset = 0.01 * Math.random() - 0.005 // ±0.005 degree offset
+            newCoords[butcher.id] = [
+              cityCenter[0] + offset,
+              cityCenter[1] + offset
+            ]
+          }
+          // Small delay to be respectful to the geocoding service
+          await new Promise(resolve => setTimeout(resolve, 300))
+        } catch (error) {
+          console.error(`Failed to geocode ${butcher.name}:`, error)
+          // Fallback: use city center with random offset
+          const offset = 0.01 * Math.random() - 0.005
+          newCoords[butcher.id] = [
+            cityCenter[0] + offset,
+            cityCenter[1] + offset
+          ]
+        }
+      }
+
+      setGeocodedCoords(prev => ({ ...prev, ...newCoords }))
+      setIsGeocoding(false)
+    }
+
+    geocodeButchers()
+  }, [butchers, city, geocodedCoords])
+
+  // Get all mappable butchers (with coordinates or geocoded)
   const mappableButchers = butchers.filter(butcher => {
-    return butcher.latitude && butcher.longitude
+    return (butcher.latitude && butcher.longitude) || geocodedCoords[butcher.id]
   })
 
   if (typeof window === 'undefined') {
@@ -172,7 +231,13 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
   }
 
   return (
-    <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg border border-slate-200">
+    <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg border border-slate-200 relative">
+      {isGeocoding && (
+        <div className="absolute top-2 right-2 z-1000 bg-white rounded-lg shadow px-3 py-2 flex items-center">
+          <div className="animate-spin rounded-full h-4 w-4 border-2 border-red-600 border-t-transparent mr-2"></div>
+          <span className="text-sm text-gray-700">Loading locations...</span>
+        </div>
+      )}
       <MapContainer
         center={defaultCenter}
         zoom={zoom}
@@ -186,8 +251,12 @@ export default function ButchersMap({ butchers, city, county, center, zoom = 13 
 
         {/* Actual butcher markers */}
         {mappableButchers.map((butcher) => {
-          // Use stored coordinates only for now
-          const coords = [butcher.latitude!, butcher.longitude!] as [number, number]
+          // Use stored coordinates or geocoded coordinates
+          const coords = (butcher.latitude && butcher.longitude)
+            ? [butcher.latitude, butcher.longitude] as [number, number]
+            : geocodedCoords[butcher.id]
+
+          if (!coords) return null
 
           return (
             <Marker
