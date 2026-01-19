@@ -20,6 +20,14 @@ export const metadata: Metadata = {
 // Sample blog posts data - this would typically come from a CMS or database
 const blogPosts = [
   {
+    id: 'how-to-choose-good-local-butcher',
+    title: 'How to Choose a Good Local Butcher',
+    excerpt: 'Discover what to look for when choosing a quality local butcher, from shop cleanliness and meat quality to customer service and expertise.',
+    image: '/how-to-choose-a-good-local-butchers.png',
+    date: '2026-01-12',
+    readTime: '6 min read'
+  },
+  {
     id: 'choosing-perfect-steak',
     title: 'How to Choose the Perfect Steak',
     excerpt: 'Learn from professional butchers how to select the best cuts for your perfect steak, including marbling, aging, and preparation tips.',
@@ -48,46 +56,45 @@ export default function BlogPage() {
         </header>
 
 
-        {/* Featured Post */}
+        {/* Latest Articles */}
         <section className="mb-16">
-          <div className="card overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              <div className="relative h-64 lg:h-auto">
-                <Image
-                  src={blogPosts[0].image}
-                  alt={blogPosts[0].title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8 lg:p-12">
-                <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                  <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full">Featured</span>
-                  <span>{blogPosts[0].readTime}</span>
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Latest Articles
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {blogPosts.map((post) => (
+              <article key={post.id} className="card hover-lift overflow-hidden">
+                <div className="relative h-64">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  {blogPosts[0].title}
-                </h2>
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                  {blogPosts[0].excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-gray-500">
-                    Last updated {new Date(blogPosts[0].date).toLocaleDateString('en-GB', {
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric'
-                    })}
+                <div className="card-content">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                    <span>Last updated {new Date(post.date).toLocaleDateString('en-GB')}</span>
+                    <span>•</span>
+                    <span>{post.readTime}</span>
                   </div>
-                  <Link
-                    href={`/blog/${blogPosts[0].id}`}
-                    className="btn btn-primary"
-                  >
-                    Read Article
-                  </Link>
+                  <h3 className="card-title text-xl mb-3">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={`/blog/${post.id}`}
+                      className="btn btn-primary"
+                    >
+                      Read More
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </section>
 
